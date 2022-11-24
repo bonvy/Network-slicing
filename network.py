@@ -70,7 +70,7 @@ def createNet():
     info( '*** Stopping network' )
     net.stop()
 
-test():
+def test():
 G = nx.random_geometric_graph(200, 0.125)
 edge_x = []
 edge_y = []
@@ -146,5 +146,6 @@ fig = go.Figure(data=[edge_trace, node_trace],
 fig.show()
 
 if __name__ == '__main__':
+    test()
     setLogLevel( 'info' )
     createNet()
