@@ -86,7 +86,7 @@ if __name__ == '__main__':
     root.rowconfigure(0, weight=1)
 
     ttk.Label(mainframe,text="ciao").grid(column=2,row=1, sticky=W)
-    ttk.Button(mainframe,text="aggiungi host",command=addHost(net)).grid(column=2, row 2,sticky=w)
+    ttk.Button(mainframe,text="aggiungi host",command=addHost(net)).grid(column=2, row =2,sticky=W)
     root.mainloop()
 
 
