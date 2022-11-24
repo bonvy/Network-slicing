@@ -10,10 +10,13 @@ from tkinter import ttk
 
 
 
-def createNet(net):
-
-
-    
+def createNet():
+    net = Mininet( 
+        switch=OVSKernelSwitch,
+        build=False,
+        autoSetMacs=True,
+        autoStaticArp=True,
+        link=TCLink,)
 
     info( '*** Adding controller\n' )
     controller = RemoteController("c1", ip="127.0.0.1", port=6633)
@@ -64,6 +67,8 @@ def createNet(net):
 
     info( '*** Stopping network' )
     net.stop()
+    return net
+
 
 def addHost(net):
     host_config = dict(inNamespace=True)
@@ -71,14 +76,8 @@ def addHost(net):
     print("aggiunto")
 
 if __name__ == '__main__':
-    net = Mininet( 
-        switch=OVSKernelSwitch,
-        build=False,
-        autoSetMacs=True,
-        autoStaticArp=True,
-        link=TCLink,)
     setLogLevel( 'info' )
-    createNet(net)
+    net=createNet()
     root = Tk() #finestra
     root.title("Test")
     root.geometry("250x250")#definizione grandezza finestra
