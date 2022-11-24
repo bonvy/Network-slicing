@@ -10,10 +10,17 @@ from mininet.log import setLogLevel, info
 def emptyNet():
 
 
-    net = Mininet( controller=RemoteController, switch=OVSKernelSwitch)
+    net = Mininet( 
+        switch=OVSKernelSwitch,
+        build=False,
+        autoSetMacs=True,
+        autoStaticArp=True,
+        link=TCLink,)
 
     info( '*** Adding controller\n' )
-    net.addController( 'c0' )
+    controller = RemoteController("c1", ip="127.0.0.1", port=6633)
+    net.addController(controller)
+
 
     host_config = dict(inNamespace=True)
     switch_config = dict(bw=20)
