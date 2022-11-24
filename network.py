@@ -10,7 +10,7 @@ from mininet.log import setLogLevel, info
 def emptyNet():
 
 
-    net = Mininet( controller=RemoteController, switch=NullSwitch )
+    net = Mininet( controller=RemoteController, switch=OVSKernelSwitch)
 
     info( '*** Adding controller\n' )
     net.addController( 'c0' )
