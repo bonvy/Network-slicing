@@ -8,20 +8,12 @@ from mininet.log import setLogLevel, info
 from tkinter import *
 from tkinter import ttk
 
-def addHost(net):
-    host_config = dict(inNamespace=True)
-    net.addHost("h10",**host_config)
-    print("aggiunto")
+
 
 def createNet(net):
 
 
-    net = Mininet( 
-        switch=OVSKernelSwitch,
-        build=False,
-        autoSetMacs=True,
-        autoStaticArp=True,
-        link=TCLink,)
+    
 
     info( '*** Adding controller\n' )
     controller = RemoteController("c1", ip="127.0.0.1", port=6633)
@@ -73,7 +65,18 @@ def createNet(net):
     info( '*** Stopping network' )
     net.stop()
 
+def addHost(net):
+    host_config = dict(inNamespace=True)
+    net.addHost("h10",**host_config)
+    print("aggiunto")
+
 if __name__ == '__main__':
+    net = Mininet( 
+        switch=OVSKernelSwitch,
+        build=False,
+        autoSetMacs=True,
+        autoStaticArp=True,
+        link=TCLink,)
     setLogLevel( 'info' )
     createNet(net)
     root = Tk() #finestra
