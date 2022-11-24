@@ -18,35 +18,35 @@ def emptyNet():
     switch_config = dict(bw=20)
 
      #create switch nodes
-        for i in range(6):
-            sconfig = {"dpid": "%016x" % (i + 1)}
-            net.addSwitch("s%d" % (i + 1), **sconfig)
+    for i in range(6):
+        sconfig = {"dpid": "%016x" % (i + 1)}
+        net.addSwitch("s%d" % (i + 1), **sconfig)
 
-        #create host nodes
-        for i in range(9):
-            net.addHost("h%d" % (i + 1), **host_config)
+     #create host nodes
+    for i in range(9):
+        net.addHost("h%d" % (i + 1), **host_config)
 
-        #network core links
-        net.addLink("s1","s2", **switch_config)
-        net.addLink("s1","s3", **switch_config)
-        net.addLink("s3","s2", **switch_config)
+    #network core links
+    net.addLink("s1","s2", **switch_config)
+    net.addLink("s1","s3", **switch_config)
+    net.addLink("s3","s2", **switch_config)
 
-        #peripheral links
-        net.addLink("s1","s4", **switch_config)
-        net.addLink("s2","s5", **switch_config)
-        net.addLink("s3","s6", **switch_config)
+    #peripheral links
+    net.addLink("s1","s4", **switch_config)
+    net.addLink("s2","s5", **switch_config)
+    net.addLink("s3","s6", **switch_config)
 
-        net.addLink("h1","s4", **host_config)
-        net.addLink("h2","s4", **host_config)
-        net.addLink("h3","s1", **host_config)
+    net.addLink("h1","s4", **host_config)
+    net.addLink("h2","s4", **host_config)
+    net.addLink("h3","s1", **host_config)
 
-        net.addLink("h4","s5", **host_config)
-        net.addLink("h5","s5", **host_config)
-        net.addLink("h6","s2", **host_config)
+    net.addLink("h4","s5", **host_config)
+    net.addLink("h5","s5", **host_config)
+    net.addLink("h6","s2", **host_config)
 
-        net.addLink("h7","s6", **host_config)
-        net.addLink("h8","s6", **host_config)
-        net.addLink("h9","s3", **host_config)
+    net.addLink("h7","s6", **host_config)
+    net.addLink("h8","s6", **host_config)
+    net.addLink("h9","s3", **host_config)
 
     
 
