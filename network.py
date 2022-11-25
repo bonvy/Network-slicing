@@ -9,8 +9,6 @@ from mininet.log import setLogLevel, info
 
 
 def createNet():
-
-
     net = Mininet( 
         switch=OVSKernelSwitch,
         build=False,
