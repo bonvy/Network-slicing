@@ -1,4 +1,15 @@
-from test import test
+from flask import Flask
+app = Flask(__name__)
 
-Prova = test()
-Prova.ciao()
+@app.route('/mio')
+def tmp():
+   return 'palle'
+
+@app.route('/')
+def hello_world():
+   return '<a href="/switch">Prova</a>'
+
+if __name__ == '__main__':
+   app.run()
+
+
