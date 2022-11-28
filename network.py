@@ -69,6 +69,8 @@ def createNet():
 if __name__ == '__main__':
     setLogLevel( 'info' )
     createNet()
+    switches = get_switch(self.topology_api_app, dpid)
+    body = json.dumps([switch.to_dict() for switch in switches])
  
 
 
