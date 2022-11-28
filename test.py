@@ -9,8 +9,11 @@ class test(app_manager.RyuApp):
      OFP_VERSIONS = [ofproto_v1_0.OFP_VERSION]
      def __init__(self, *args, **kwargs):
         super(test, self).__init__(*args, **kwargs)
-
-     def switch(self):
+    
+    def ciao():
+        print("hello word")
+    
+    def switch(self):
         get_switch(self)
 
      
