@@ -17,7 +17,7 @@ def createNet():
         link=TCLink,)
 
     info( '*** Adding controller\n' )
-    controller = RemoteController(test, ip="127.0.0.1", port=6633)
+    controller = RemoteController(test(), ip="127.0.0.1", port=6633)
     net.addController(controller)
 
 
