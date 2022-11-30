@@ -5,7 +5,7 @@ from mininet.node import OVSKernelSwitch, RemoteController
 from mininet.cli import CLI
 from mininet.link import TCLink
 from mininet.log import setLogLevel, info
-from test import test
+
 
 
 def createNet():
