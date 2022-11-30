@@ -37,6 +37,7 @@ def get_all_link(app):
 
 def get_host(app, dpid=None):
     rep = app.send_request(event.EventHostRequest(dpid))
+    print("CAZZZOOOOOOOO")
     return rep.hosts
 
 
