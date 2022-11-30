@@ -14,7 +14,6 @@ var CONF = {
 var ws = new WebSocket("ws://" + location.host + "/v1.0/topology/ws");
 ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
-
     var result = rpc[data.method](data.params);
 
     var ret = {"id": data.id, "jsonrpc": "2.0", "result": result};
@@ -270,8 +269,12 @@ var rpc = {
 function initialize_topology() {
     d3.json("/v1.0/topology/switches", function(error, switches) {
         d3.json("/v1.0/topology/links", function(error, links) {
-            topo.initialize({switches: switches, links: links});
-            elem.update();
+            d3.json("/v1.0/topology/hosts",function(error,hosts){
+                topo.initialize({switches: switches, links: links, hosts: hosts});
+                elem.update();
+            });
+           
+            
         });
     });
 }
