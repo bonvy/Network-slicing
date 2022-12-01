@@ -127,7 +127,7 @@ var topo = {
         console.log(data)
         this.add_switches(data.switches);
         this.add_links(data.links);
-        this.a
+        this.add_hosts(data.hosts)
     },
     add_hosts: function(hosts){
         for (var i = 0; i < hosts.length; i++) {
