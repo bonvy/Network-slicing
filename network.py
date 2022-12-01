@@ -56,7 +56,7 @@ def createNet():
     net.addLink("h9","s3", **host_config)
 
     net.build()
-
+    info(net.hosts())
     info( '*** Starting network\n')
     net.start()
 
@@ -64,7 +64,7 @@ def createNet():
     CLI( net )
 
     info( '*** Stopping network' )
-    info(net.hosts(self, sort=True))
+    
     net.stop()
 
 if __name__ == '__main__':
