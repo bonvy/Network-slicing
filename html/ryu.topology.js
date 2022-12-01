@@ -75,7 +75,7 @@ elem.link = elem.svg.selectAll(".link");
 elem.port = elem.svg.selectAll(".port");
 elem.update = function () {
     this.force
-        .nodes(topo.nodes)
+        .swithces(topo.swithces)
         .links(topo.links)
         .start();
 
@@ -84,7 +84,7 @@ elem.update = function () {
     this.link.enter().append("line")
         .attr("class", "link");
 
-    this.node = this.node.data(topo.nodes);
+    this.node = this.node.data(topo.swithces);
     this.node.exit().remove();
     var nodeEnter = this.node.enter().append("g")
         .attr("class", "node")
@@ -119,17 +119,17 @@ function is_valid_link(link) {
 }
 
 var topo = {
-    nodes: [],
+    swithces: [],
     links: [],
-    node_index: {}, // dpid -> index of nodes array
+    node_index: {}, // dpid -> index of swithces array
     initialize: function (data) {
         console.log(data)
         this.add_nodes(data.switches);
         this.add_links(data.links);
     },
-    add_nodes: function (nodes) {
-        for (var i = 0; i < nodes.length; i++) {
-            this.nodes.push(nodes[i]);
+    add_nodes: function (swithces) {
+        for (var i = 0; i < swithces.length; i++) {
+            this.swithces.push(swithces[i]);
         }
         this.refresh_node_index();
     },
@@ -153,12 +153,12 @@ var topo = {
             this.links.push(link);
         }
     },
-    delete_nodes: function (nodes) {
-        for (var i = 0; i < nodes.length; i++) {
-            console.log("delete switch: " + JSON.stringify(nodes[i]));
+    delete_nodes: function (swithces) {
+        for (var i = 0; i < swithces.length; i++) {
+            console.log("delete switch: " + JSON.stringify(swithces[i]));
 
-            node_index = this.get_node_index(nodes[i]);
-            this.nodes.splice(node_index, 1);
+            node_index = this.get_node_index(swithces[i]);
+            this.swithces.splice(node_index, 1);
         }
         this.refresh_node_index();
     },
@@ -172,8 +172,8 @@ var topo = {
         }
     },
     get_node_index: function (node) {
-        for (var i = 0; i < this.nodes.length; i++) {
-            if (node.dpid == this.nodes[i].dpid) {
+        for (var i = 0; i < this.swithces.length; i++) {
+            if (node.dpid == this.swithces[i].dpid) {
                 return i;
             }
         }
@@ -229,8 +229,8 @@ var topo = {
     },
     refresh_node_index: function(){
         this.node_index = {};
-        for (var i = 0; i < this.nodes.length; i++) {
-            this.node_index[this.nodes[i].dpid] = i;
+        for (var i = 0; i < this.swithces.length; i++) {
+            this.node_index[this.swithces[i].dpid] = i;
         }
     },
 }
@@ -271,7 +271,6 @@ function initialize_topology() {
         d3.json("/v1.0/topology/links", function(error, links) {
             d3.json("v1.0/topology/hosts", function(error, hosts){
                 topo.initialize({switches: switches, links: links, hosts: hosts});
-                console.log(topo)
             elem.update();
             });
             
