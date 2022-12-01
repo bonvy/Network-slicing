@@ -278,7 +278,7 @@ function initialize_topology() {
     d3.json("/v1.0/topology/switches", function(error, switches) {
         //d3.json("/v1.0/topology/links", function(error, links) {
             d3.json("/v1.0/topology/hosts", function(error, hosts){
-                topo.initialize({switches: switches, links: links, hosts: hosts});
+                topo.initialize({switches: switches,  hosts: hosts});
             elem.update();
             });
             
