@@ -6,8 +6,7 @@ from mininet.cli import CLI
 from mininet.link import TCLink
 from mininet.log import setLogLevel, info
 
-from ryu.app.wsgi import ControllerBase, WSGIApplication, route
-from ryu.base import app_manager
+
 
 def createNet():
     net = Mininet( 
@@ -68,29 +67,8 @@ def createNet():
     
     net.stop()
 
+if __name__ == '__main__':
+    setLogLevel( 'info' )
+    createNet()
 
 
-
- 
-
-
-class NetApp(app_manager.RyuApp):
-    _CONTEXTS = {
-        'wsgi': WSGIApplication,
-    }
-
-    def __init__(self, *args, **kwargs):
-        super(NetApp, self).__init__(*args, **kwargs)
-
-        wsgi = kwargs['wsgi']
-        wsgi.register(NetAppController)
-
-class NetAppController(ControllerBase):
-    def __init__(self, req, link, data, **config):
-        super(NetAppController, self).__init__(req, link, data, **config)
-        createNet()
-        
-
-    @route('topology', '')
-    def static_handler(self, req, **kwargs):
-        a=1
