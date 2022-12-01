@@ -64,7 +64,7 @@ def createNet():
     CLI( net )
 
     info( '*** Stopping network' )
-    net.hosts(self, sort=True)
+    info(net.hosts(self, sort=True))
     net.stop()
 
 if __name__ == '__main__':
