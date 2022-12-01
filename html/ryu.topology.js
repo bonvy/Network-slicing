@@ -121,13 +121,21 @@ function is_valid_link(link) {
 var topo = {
     swithces: [],
     links: [],
+    hosts: [],
     node_index: {}, // dpid -> index of swithces array
     initialize: function (data) {
         console.log(data)
-        this.add_nodes(data.switches);
+        this.add_switches(data.switches);
         this.add_links(data.links);
+        this.a
     },
-    add_nodes: function (swithces) {
+    add_hosts: function(hosts){
+        for (var i = 0; i < hosts.length; i++) {
+            this.swithces.push(hosts[i]);
+        }
+        //this.refresh_node_index();
+    },
+    add_switches: function (swithces) {
         for (var i = 0; i < swithces.length; i++) {
             this.swithces.push(swithces[i]);
         }
@@ -241,7 +249,7 @@ var rpc = {
         for(var i=0; i < params.length; i++){
             switches.push({"dpid":params[i].dpid,"ports":params[i].ports});
         }
-        topo.add_nodes(switches);
+        topo.add_switches(switches);
         elem.update();
         return "";
     },
