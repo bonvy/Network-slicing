@@ -64,11 +64,13 @@ def createNet():
     CLI( net )
 
     info( '*** Stopping network' )
+    net.hosts(self, sort=True)
     net.stop()
 
 if __name__ == '__main__':
     setLogLevel( 'info' )
     createNet()
+
     
  
 
