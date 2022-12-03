@@ -25,6 +25,6 @@ class HostController(ControllerBase):
     
     @route('topology', '/v1.0/topology/getHost',
            methods=['GET'])
-    def getHost():
+    def getHost(self, req, **kwargs):
         body = json.dumps("prova")
         return Response(content_type='application/json', body=body)
