@@ -14,7 +14,6 @@ var CONF = {
 var ws = new WebSocket("ws://" + location.host + "/v1.0/topology/ws");
 ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
-
     var result = rpc[data.method](data.params);
 
     var ret = {"id": data.id, "jsonrpc": "2.0", "result": result};
@@ -123,9 +122,10 @@ var topo = {
     links: [],
     node_index: {}, // dpid -> index of nodes array
     initialize: function (data) {
-        console.log(data)
         this.add_nodes(data.switches);
         this.add_links(data.links);
+        console.log(data)
+        
     },
     add_nodes: function (nodes) {
         for (var i = 0; i < nodes.length; i++) {
@@ -267,13 +267,13 @@ var rpc = {
 }
 
 function initialize_topology() {
-    d3.json("/v1.0/topology/hosts", function(error, switches) {
+    d3.json("/v1.0/topology/switches", function(error, switches) {
         d3.json("/v1.0/topology/links", function(error, links) {
-            //d3.json("v1.0/topology/hosts", function(error, hosts){
+            d3.json("/v1.0/topology/hosts",function(error,hosts){
                 topo.initialize({switches: switches, links: links, hosts: hosts});
-                
-            elem.update();
-            //});
+                elem.update();
+            });
+           
             
         });
     });
