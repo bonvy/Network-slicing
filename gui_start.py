@@ -39,7 +39,7 @@ class GUIServerController(ControllerBase):
     @set_ev_cls(event.EventHostAdd, MAIN_DISPATCHER)
     def NewHost(self, ev):
         i+1
-        print(i)
+       
     
 
 
