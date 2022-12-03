@@ -37,14 +37,9 @@ class GUIServerController(ControllerBase):
             req.path_info = kwargs['filename']
         return self.static_app(req)
 
-    @set_ev_cls(event.EventHostAdd, MAIN_DISPATCHER)
-    def NewHost(self, ev):
-        GUIServerController.i+1
+    
 
-    @route('topology', '/v1.0/topology/getHost',
-           methods=['GET'])
-    def getHost():
-        return "ciao"
+    
        
     
 
@@ -52,3 +47,4 @@ class GUIServerController(ControllerBase):
 app_manager.require_app('ryu.app.rest_topology')
 app_manager.require_app('ryu.app.ws_topology')
 app_manager.require_app('ryu.app.ofctl_rest')
+app_manager.require_app('rest_host')
