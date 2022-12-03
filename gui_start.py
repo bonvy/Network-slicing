@@ -44,7 +44,7 @@ class GUIServerController(ControllerBase):
     @route('topology', '/v1.0/topology/getHost',
            methods=['GET'])
     def getHost():
-        return GUIServerController.i
+        return "ciao"
        
     
 
