@@ -47,4 +47,4 @@ class GUIServerController(ControllerBase):
 app_manager.require_app('ryu.app.rest_topology')
 app_manager.require_app('ryu.app.ws_topology')
 app_manager.require_app('ryu.app.ofctl_rest')
-app_manager.require_app('rest_host')
+app_manager.require_app('network-topology.rest_host')
