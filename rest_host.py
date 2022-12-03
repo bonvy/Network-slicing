@@ -15,7 +15,7 @@ class HostAPI(app_manager.RyuApp):
         super(HostAPI, self).__init__(*args, **kwargs)
 
         wsgi = kwargs['wsgi']
-        wsgi.register(TopologyController, {'topology_api_app': self})
+        wsgi.register(HostController, {'topology_api_app': self})
 
 
 class HostController(ControllerBase):
