@@ -6,6 +6,7 @@ from ryu.app.wsgi import ControllerBase, WSGIApplication, route
 from ryu.controller.handler import set_ev_cls
 from ryu.base import app_manager
 from ryu.topology import event
+from ryu.app.wsgi import route
 
 PATH = os.path.dirname(__file__)
 
