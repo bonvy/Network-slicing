@@ -38,7 +38,12 @@ class GUIServerController(ControllerBase):
 
     @set_ev_cls(event.EventHostAdd, MAIN_DISPATCHER)
     def NewHost(self, ev):
-        info("prova")
+        GUIServerController.i+1
+
+    @route('topology', '/v1.0/topology/getHost',
+           methods=['GET'])
+    def getHost():
+        return GUIServerController.i
        
     
 
