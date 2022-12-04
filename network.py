@@ -35,7 +35,7 @@ def createNet():
 
     #network core links
     net.addLink("s1","s2", **switch_config)
-    net.addLink("s1","s3", **switch_config)
+    #net.addLink("s1","s3", **switch_config)
     net.addLink("s3","s2", **switch_config)
 
     #peripheral links
