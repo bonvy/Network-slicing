@@ -9,6 +9,7 @@ from ryu.ofproto import ofproto_v1_3
 from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER
 from ryu.controller.handler import set_ev_cls
 from ryu.topology import event
+from ryu.topology.api import get_link, get_switch, get_host, get_all_host
 
 class HostAPI(app_manager.RyuApp):
     _CONTEXTS = {
@@ -25,7 +26,7 @@ class HostAPI(app_manager.RyuApp):
 class HostController(ControllerBase):
 
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
-    hosts=0
+    hosts=""
     def __init__(self, req, link, data, **config):
         super(HostController, self).__init__(req, link, data, **config)
         self.topology_api_app = data['host_api_app']
@@ -38,4 +39,4 @@ class HostController(ControllerBase):
 
     @set_ev_cls(event.EventHostAdd)
     def switch_features_handler(self, ev):
-        HostController.hosts+=1
+        HostController+=get_host(self, None)
