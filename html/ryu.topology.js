@@ -160,7 +160,7 @@ var topo = {
         for (var i = 0; i < hosts.length; i++) {
             this.hosts.push(hosts[i]);
         }
-        this.refresh_hosts_index();
+        this.refresh_host_index();
     },
     add_links: function (links) {
         for (var i = 0; i < links.length; i++) {
