@@ -36,7 +36,7 @@ class HostController(ControllerBase):
            methods=['GET'])
     def getHost(self, req, **kwargs):
         HostController.tmp+=1
-        body = json.dumps(HostController.hosts+HostController.tmp)
+        body = json.dumps(HostController.tmp)
         return Response(content_type='application/json', body=body)
 
     @set_ev_cls(event.EventHostAdd)
