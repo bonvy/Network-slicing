@@ -39,4 +39,5 @@ class HostController(ControllerBase):
 
     @set_ev_cls(event.EventHostAdd)
     def switch_features_handler(self, ev):
+        print("ieee")
         HostController+=get_host(self, None)
