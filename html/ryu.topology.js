@@ -106,7 +106,7 @@ elem.update = function () {
     this.host = this.host.data(topo.hosts);
     this.host.exit().remove();
     var hostEnter = this.host.enter().append("g")
-        .attr("class", "node")
+        .attr("class", "host")
         .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
         .call(this.drag);
     hostEnter.append("image")
