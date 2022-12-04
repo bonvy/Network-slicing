@@ -35,8 +35,8 @@ class HostController(ControllerBase):
     @route('topology', '/v1.0/topology/getHost',
            methods=['GET'])
     def getHost(self, req, **kwargs):
-  
-        body = json.dumps(HostController.tmp)
+     
+        body = json.dumps( get_switch(self.topology_api_app,None))
         return Response(content_type='application/json', body=body)
 
     @set_ev_cls(event.EventHostBase)
