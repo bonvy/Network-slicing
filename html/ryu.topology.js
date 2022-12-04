@@ -262,6 +262,12 @@ var topo = {
             this.node_index[this.nodes[i].dpid] = i;
         }
     },
+    refresh_host_index: function(){
+        this.host_index = {};
+        for (var i = 0; i < this.hosts.length; i++) {
+            this.host_index[this.hosts[i].dpid] = i;
+        }
+    },
 }
 
 var rpc = {
