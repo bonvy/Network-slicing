@@ -72,10 +72,12 @@ function _dragstart(d) {
 elem.node = elem.svg.selectAll(".node");
 elem.link = elem.svg.selectAll(".link");
 elem.port = elem.svg.selectAll(".port");
+elem.host = elem.svg.selectAll(".host")
 elem.update = function () {
     this.force
         .nodes(topo.nodes)
         .links(topo.links)
+        .host(topo.hosts)
         .start();
 
     this.link = this.link.data(topo.links);
@@ -100,6 +102,24 @@ elem.update = function () {
         .attr("dy", CONF.image.height-10)
         .text(function(d) { return "dpid: " + trim_zero(d.dpid); });
 
+
+    this.host = this.host.data(topo.hosts);
+    this.host.exit().remove();
+    var hostEnter = this.host.enter().append("g")
+        .attr("class", "node")
+        .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
+        .call(this.drag);
+    hostEnter.append("image")
+        .attr("xlink:href", "./router.svg")
+        .attr("x", -CONF.image.width/2)
+        .attr("y", -CONF.image.height/2)
+        .attr("width", CONF.image.width)
+        .attr("height", CONF.image.height);
+    hostEnter.append("text")
+        .attr("dx", -CONF.image.width/2)
+        .attr("dy", CONF.image.height-10)
+        .text(function(d) { return "dpid: " + trim_zero(d.dpid); });
+
     var ports = topo.get_ports();
     this.port.remove();
     this.port = this.svg.selectAll(".port").data(ports);
@@ -120,10 +140,13 @@ function is_valid_link(link) {
 var topo = {
     nodes: [],
     links: [],
+    hosts: [],
+    hosts_index: {},
     node_index: {}, // dpid -> index of nodes array
     initialize: function (data) {
         this.add_nodes(data.switches);
         this.add_links(data.links);
+        this.add_hosts(data.hosts);
         console.log(data)
         
     },
@@ -132,6 +155,12 @@ var topo = {
             this.nodes.push(nodes[i]);
         }
         this.refresh_node_index();
+    },
+    add_hosts: function (hosts) {
+        for (var i = 0; i < hosts.length; i++) {
+            this.hosts.push(hosts[i]);
+        }
+        this.refresh_hosts_index();
     },
     add_links: function (links) {
         for (var i = 0; i < links.length; i++) {
