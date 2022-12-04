@@ -27,6 +27,7 @@ class HostController(ControllerBase):
 
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
     hosts=""
+    tmp=0
     def __init__(self, req, link, data, **config):
         super(HostController, self).__init__(req, link, data, **config)
         self.topology_api_app = data['host_api_app']
@@ -34,7 +35,8 @@ class HostController(ControllerBase):
     @route('topology', '/v1.0/topology/getHost',
            methods=['GET'])
     def getHost(self, req, **kwargs):
-        body = json.dumps(HostController.hosts)
+        HostController.tmp+=1
+        body = json.dumps(HostController.hosts+HostController.tmp)
         return Response(content_type='application/json', body=body)
 
     @set_ev_cls(event.EventHostAdd)
