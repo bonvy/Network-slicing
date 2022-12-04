@@ -77,7 +77,7 @@ elem.update = function () {
     this.force
         .nodes(topo.nodes)
         .links(topo.links)
-        .hosts(topo.hosts)
+        //.hosts(topo.hosts)
         .start();
 
     this.link = this.link.data(topo.links);
