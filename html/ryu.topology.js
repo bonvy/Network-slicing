@@ -105,7 +105,7 @@ elem.update = function () {
 
     this.host = this.host.data(topo.hosts);
     this.host.exit().remove();
-    var hostEnter = this.host.enter().append("g")
+    var hostEnter = this.host.enter().append("h")
         .attr("class", "host")
         .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
         .call(this.drag);
@@ -296,6 +296,24 @@ var rpc = {
     },
     event_link_delete: function (links) {
         topo.delete_links(links);
+        elem.update();
+        return "";
+    },
+    event_host_enter: function (params) {
+        var hosts = [];
+        for(var i=0; i < params.length; i++){
+            hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
+        }
+        topo.add_nodes(hosts);
+        elem.update();
+        return "";
+    },
+    event_hosts_leave: function (params) {
+        var hosts = [];
+        for(var i=0; i < params.length; i++){
+            hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
+        }
+        topo.delete_nodes(hosts);
         elem.update();
         return "";
     },
