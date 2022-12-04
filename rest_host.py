@@ -35,11 +35,10 @@ class HostController(ControllerBase):
     @route('topology', '/v1.0/topology/getHost',
            methods=['GET'])
     def getHost(self, req, **kwargs):
-        HostController.tmp+=1
+  
         body = json.dumps(HostController.tmp)
         return Response(content_type='application/json', body=body)
 
-    @set_ev_cls(event.EventHostAdd)
+    @set_ev_cls(event.EventHostBase)
     def switch_features_handler(self, ev):
-        print("ieee")
-        HostController+=get_host(self, None)
+        HostController.tmp+=1
