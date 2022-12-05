@@ -114,7 +114,7 @@ elem.update = function () {
 };
 
 function is_valid_link(link) {
-    return (false)
+    return (link.src.dpid < link.dst.dpid)
 }
 
 var topo = {
@@ -144,6 +144,7 @@ var topo = {
         this.refresh_node_index();
     },
     add_links: function (links) {
+        console.log(links)
         for (var i = 0; i < links.length; i++) {
             if (!is_valid_link(links[i])) continue;
             console.log("add link: " + JSON.stringify(links[i]));
