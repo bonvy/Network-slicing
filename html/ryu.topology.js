@@ -87,7 +87,7 @@ elem.update = function () {
     this.node.exit().remove();
     tmp=this.node[0]
     tmp1=tmp[0]
-    console.log(tmp1[0])
+    console.log(tmp1)
     var nodeEnter = this.node.enter().append("g")
         .attr("class", "node")
         .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
