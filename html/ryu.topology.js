@@ -92,7 +92,7 @@ elem.update = function () {
         .attr("class", "node")
         .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
         .call(this.drag);
-    console.log(nodeEnter)
+    console.log(nodeEnter[0])
     nodeEnter.append("image")
         .attr("xlink:href", "./router.svg")
         .attr("x", -CONF.image.width/2)
