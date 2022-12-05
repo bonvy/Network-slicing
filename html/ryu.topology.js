@@ -72,7 +72,6 @@ function _dragstart(d) {
 elem.node = elem.svg.selectAll(".node");
 elem.link = elem.svg.selectAll(".link");
 elem.port = elem.svg.selectAll(".port");
-elem.host = elem.svg.selectAll(".host")
 elem.update = function () {
     this.force
         .nodes(topo.nodes)
@@ -115,7 +114,7 @@ elem.update = function () {
 };
 
 function is_valid_link(link) {
-    return (link.src.dpid < link.dst.dpid)
+    return (true)
 }
 
 var topo = {
