@@ -85,8 +85,7 @@ elem.update = function () {
 
     this.node = this.node.data(topo.nodes);
     this.node.exit().remove();
-    tmp=this.node[0]
-    console.log(typeof(tmp))
+    console.log(topo.nodes)
     
     var nodeEnter = this.node.enter().append("g")
         .attr("class", "node")
