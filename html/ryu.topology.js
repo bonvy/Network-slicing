@@ -103,6 +103,8 @@ elem.update = function () {
         .attr("dy", CONF.image.height-10)
         .text(function(d) { return "dpid: " + trim_zero(d.dpid); });
 
+    console.log(nodeEnter)
+
     var ports = topo.get_ports();
     this.port.remove();
     this.port = this.svg.selectAll(".port").data(ports);
