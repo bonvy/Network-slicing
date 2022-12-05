@@ -121,7 +121,7 @@ function is_valid_link(link) {
 var topo = {
     nodes: [],
     links: [],
-   
+    hosts: [],
     hosts_index: {},
     node_index: {}, // dpid -> index of nodes array
     initialize: function (data) {
@@ -132,7 +132,7 @@ var topo = {
         
     },
     add_nodes: function (nodes) {
-        for (var i = 0; i < nodes.length; i++) {
+        for (var i = nodes.length; i < nodes.length; i++) {
             this.nodes.push(nodes[i]);
         }
         this.refresh_node_index();
