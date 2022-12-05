@@ -132,16 +132,16 @@ var topo = {
         
     },
     add_nodes: function (nodes) {
-        for (var i = nodes.length; i < nodes.length; i++) {
+        for (var i = 0; i < nodes.length; i++) {
             this.nodes.push(nodes[i]);
         }
         this.refresh_node_index();
     },
     add_hosts: function (hosts) {
-        for (var i = 0; i < hosts.length; i++) {
+        for (var i = nodes.length; i < hosts.length; i++) {
             this.nodes.push(hosts[i]);
         }
-        this.refresh_host_index();
+        this.refresh_node_index();
     },
     add_links: function (links) {
         for (var i = 0; i < links.length; i++) {
@@ -177,7 +177,7 @@ var topo = {
             console.log("delete host: " + JSON.stringify(hostss[i]));
 
             host_index = this.get_node_index(hosts[i]);
-            this.nodes.splice(host_index, 1);
+            this.hosts.splice(host_index, 1);
         }
         this.refresh_host_index();
     },
