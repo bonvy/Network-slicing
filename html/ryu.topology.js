@@ -86,8 +86,8 @@ elem.update = function () {
     this.node = this.node.data(topo.nodes);
     this.node.exit().remove();
     tmp=this.node[0]
-    tmp1=tmp[1]
-    console.log(tmp1)
+    console.log(typeof(tmp))
+    
     var nodeEnter = this.node.enter().append("g")
         .attr("class", "node")
         .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
