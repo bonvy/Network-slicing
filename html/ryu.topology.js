@@ -94,7 +94,7 @@ elem.update = function () {
         .call(this.drag);
     
     tmp = nodeEnter[0]
-    console.log(tmp[0].__data__)
+    console.log(tmp[0].__data__[0])
     nodeEnter.append("image")
         .attr("xlink:href", "./router.svg")
         .attr("x", -CONF.image.width/2)
