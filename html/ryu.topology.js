@@ -114,7 +114,7 @@ elem.update = function () {
 };
 
 function is_valid_link(link) {
-    return (true)
+    return (false)
 }
 
 var topo = {
