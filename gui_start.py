@@ -5,6 +5,7 @@ from ryu.app.wsgi import ControllerBase, WSGIApplication, route
 from ryu.base import app_manager
 from ryu.app.wsgi import route
 
+
 PATH = os.path.dirname(__file__)
 
 
@@ -44,3 +45,4 @@ class GUIServerController(ControllerBase):
 app_manager.require_app('ryu.app.rest_topology')
 app_manager.require_app('ryu.app.ws_topology')
 app_manager.require_app('ryu.app.ofctl_rest')
+

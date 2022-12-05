@@ -86,6 +86,7 @@ elem.update = function () {
     this.node = this.node.data(topo.nodes);
     this.node.exit().remove();
     var nodeEnter = this.node.enter().append("g")
+    console.log(nodeEnter)
         .attr("class", "node")
         .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
         .call(this.drag);
@@ -144,7 +145,7 @@ var topo = {
         this.refresh_node_index();
     },
     add_links: function (links) {
-        console.log(links)
+       
         for (var i = 0; i < links.length; i++) {
             if (!is_valid_link(links[i])) continue;
             console.log("add link: " + JSON.stringify(links[i]));
