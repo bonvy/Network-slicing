@@ -77,7 +77,6 @@ elem.update = function () {
     this.force
         .nodes(topo.nodes)
         .links(topo.links)
-        //.hosts(topo.hosts)
         .start();
 
     this.link = this.link.data(topo.links);
@@ -102,24 +101,6 @@ elem.update = function () {
         .attr("dy", CONF.image.height-10)
         .text(function(d) { return "dpid: " + trim_zero(d.dpid); });
 
-
-    this.host = this.host.data(topo.hosts);
-    this.host.exit().remove();
-    var hostEnter = this.host.enter().append("h")
-        .attr("class", "host")
-        .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
-        .call(this.drag);
-    hostEnter.append("image")
-        .attr("xlink:href", "./router.svg")
-        .attr("x", -CONF.image.width/2)
-        .attr("y", -CONF.image.height/2)
-        .attr("width", CONF.image.width)
-        .attr("height", CONF.image.height);
-    hostEnter.append("text")
-        .attr("dx", -CONF.image.width/2)
-        .attr("dy", CONF.image.height-10)
-        .text(function(d) { return "dpid: " + trim_zero(d.dpid); });
-
     var ports = topo.get_ports();
     this.port.remove();
     this.port = this.svg.selectAll(".port").data(ports);
@@ -140,7 +121,7 @@ function is_valid_link(link) {
 var topo = {
     nodes: [],
     links: [],
-    hosts: [],
+   
     hosts_index: {},
     node_index: {}, // dpid -> index of nodes array
     initialize: function (data) {
@@ -158,7 +139,7 @@ var topo = {
     },
     add_hosts: function (hosts) {
         for (var i = 0; i < hosts.length; i++) {
-            this.hosts.push(hosts[i]);
+            this.nodes.push(hosts[i]);
         }
         this.refresh_host_index();
     },
@@ -190,6 +171,15 @@ var topo = {
             this.nodes.splice(node_index, 1);
         }
         this.refresh_node_index();
+    },
+    delete_hosts: function (hosts) {
+        for (var i = 0; i < hosts.length; i++) {
+            console.log("delete host: " + JSON.stringify(hostss[i]));
+
+            host_index = this.get_node_index(hosts[i]);
+            this.nodes.splice(host_index, 1);
+        }
+        this.refresh_host_index();
     },
     delete_links: function (links) {
         for (var i = 0; i < links.length; i++) {
@@ -304,7 +294,7 @@ var rpc = {
         for(var i=0; i < params.length; i++){
             hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
         }
-        topo.add_nodes(hosts);
+        topo.add_hosts(hosts);
         elem.update();
         return "";
     },
@@ -313,7 +303,7 @@ var rpc = {
         for(var i=0; i < params.length; i++){
             hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
         }
-        topo.delete_nodes(hosts);
+        topo.delete_hosts(hosts);
         elem.update();
         return "";
     },
@@ -323,7 +313,6 @@ function initialize_topology() {
     d3.json("/v1.0/topology/switches", function(error, switches) {
         d3.json("v1.0/topology/hosts", function(erro, hosts){
             d3.json("/v1.0/topology/links", function(error, links) {
-           
                 topo.initialize({switches: switches, links: links, hosts: hosts});
                 elem.update();   
             });
