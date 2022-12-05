@@ -95,6 +95,7 @@ elem.update = function () {
     
     tmp = nodeEnter[0]
     console.log(tmp[0].__data__.dpid)
+    tmp.forEach(element => console.log("ciao"))
     nodeEnter.append("image")
         .attr("xlink:href", "./router.svg")
         .attr("x", -CONF.image.width/2)
