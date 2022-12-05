@@ -137,8 +137,10 @@ var topo = {
         this.refresh_node_index();
     },
     add_hosts: function (hosts,nodes) {
-        for (var i = nodes.length; i < hosts.length; i++) {
-            this.nodes.push(hosts[i]);
+        t=nodes.length
+        for (var i = 0; i < hosts.length; i++) {
+            this.nodes[t]=hosts[i]
+            t++;
         }
         this.refresh_node_index();
     },
