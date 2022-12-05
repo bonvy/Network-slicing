@@ -122,12 +122,11 @@ var topo = {
     nodes: [],
     links: [],
     hosts: [],
-    hosts_index: {},
     node_index: {}, // dpid -> index of nodes array
     initialize: function (data) {
         this.add_nodes(data.switches);
         this.add_links(data.links);
-        this.add_hosts(data.hosts,data.nodes);
+        this.add_hosts(data.hosts,this.nodes);
         console.log(data)
         
     },
