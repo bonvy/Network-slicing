@@ -108,12 +108,7 @@ elem.update = function () {
                 console.log("buu")
             }
     })
-    nodeEnter.append("image")
-        .attr("xlink:href", "./router.svg")
-        .attr("x", -CONF.image.width/2)
-        .attr("y", -CONF.image.height/2)
-        .attr("width", CONF.image.width)
-        .attr("height", CONF.image.height);
+   
     nodeEnter.append("text")
         .attr("dx", -CONF.image.width/2)
         .attr("dy", CONF.image.height-10)
