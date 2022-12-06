@@ -95,7 +95,13 @@ elem.update = function () {
     
     tmp = nodeEnter[0]
     console.log(tmp)
-    tmp.forEach(element => console.log(element.__data__))
+    tmp.forEach(function(element){
+        if(element.__data__.includes("dpid")){
+            console.log("yes")
+        }else{
+            console.log("false")
+        }
+    })
     nodeEnter.append("image")
         .attr("xlink:href", "./router.svg")
         .attr("x", -CONF.image.width/2)
@@ -129,7 +135,7 @@ function is_valid_link(link) {
 var topo = {
     nodes: [],
     links: [],
-    hosts: [],
+    
     node_index: {}, // dpid -> index of nodes array
     initialize: function (data) {
         this.add_nodes(data.switches);
