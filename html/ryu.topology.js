@@ -166,7 +166,6 @@ var topo = {
                 dst: {}
             }
         }
-        console.log("ecco")
         this.links.push(link);
     },
     add_hosts: function (hosts,nodes) {
@@ -174,7 +173,7 @@ var topo = {
         for (var i = 0; i < hosts.length; i++) {
             
             this.nodes[t]=hosts[i]
-            console.log(hosts)
+            console.log(nodes[0])
             this.add_Host_Sw_link(t,hosts[i])
             t++;
         }
