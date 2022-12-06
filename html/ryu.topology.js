@@ -98,7 +98,7 @@ elem.update = function () {
     tmp.forEach(function(element){
             if(element.__data__.dpid!=null){
                 console.log("ehi")
-                element.append("image")
+                element.appendChild(document.createElement("img"))
                     .attr("xlink:href", "./router.svg")
                     .attr("x", -CONF.image.width/2)
                     .attr("y", -CONF.image.height/2)
