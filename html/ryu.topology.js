@@ -160,11 +160,10 @@ var topo = {
     add_hosts: function (hosts,nodes) {
         t=nodes.length
         for (var i = 0; i < hosts.length; i++) {
-            console.log(hosts[i])
-            console.log(nodes)
+            
             this.nodes[t]=hosts[i]
-            console.log(hosts[i].port.dpid)
-            //this.add_Host_Sw_link(t,)
+            
+            add_Host_Sw_link(t,hosts[i].port.dpid)
             t++;
         }
         this.refresh_node_index();
@@ -174,9 +173,11 @@ var topo = {
             source: index,
             target: target,
             port:{
-
+                src: 0,
+                dst: 0
             }
         }
+        this.links.push(link)
     },
     add_links: function (links) {
        
