@@ -21,7 +21,9 @@ ws.onmessage = function(event) {
 }
 
 function trim_zero(obj) {
-    console.log(obj)
+    
+    return "mac: "+obj.mac+" ip: "+ipv4[0]
+    
 }
 
 function dpid_to_int(dpid) {
