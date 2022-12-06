@@ -157,17 +157,6 @@ var topo = {
         }
         this.refresh_node_index();
     },
-    add_hosts: function (hosts,nodes) {
-        t=nodes.length
-        for (var i = 0; i < hosts.length; i++) {
-            
-            this.nodes[t]=hosts[i]
-            
-            add_Host_Sw_link(t,hosts[i].port.dpid)
-            t++;
-        }
-        this.refresh_node_index();
-    },
     add_Host_Sw_link(index,target){
         var link={
             source: index,
@@ -179,6 +168,18 @@ var topo = {
         }
         this.links.push(link)
     },
+    add_hosts: function (hosts,nodes) {
+        t=nodes.length
+        for (var i = 0; i < hosts.length; i++) {
+            
+            this.nodes[t]=hosts[i]
+            
+            add_Host_Sw_link(t,hosts[i].port.dpid)
+            t++;
+        }
+        this.refresh_node_index();
+    },
+ 
     add_links: function (links) {
        
         for (var i = 0; i < links.length; i++) {
