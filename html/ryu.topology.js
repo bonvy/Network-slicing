@@ -98,7 +98,7 @@ elem.update = function () {
     tmp.forEach(function(element){
             if(element.__data__.dpid!=null){
                 console.log("ehi")
-                img=document.createElement("img")
+                img=document.createElement("image")
                 img.src="./router.svg"
                 img.x=-CONF.image.width/2
                 img.y= -CONF.image.height/2
