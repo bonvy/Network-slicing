@@ -174,7 +174,7 @@ var topo = {
         for (var i = 0; i < hosts.length; i++) {
             
             this.nodes[t]=hosts[i]
-            console.log(hosts.port)
+            console.log(hosts)
             this.add_Host_Sw_link(t,hosts[i])
             t++;
         }
