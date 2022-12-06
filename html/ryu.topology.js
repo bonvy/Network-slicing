@@ -99,7 +99,7 @@ elem.update = function () {
             if(element.__data__.dpid!=null){
                 console.log("ehi")
                 console.log("ehi")
-                img = document.createElement("image")
+                img = document.createElement("img")
                 img.setAttribute("src","./router.svg")
                 img.setAttribute("x", -CONF.image.width/2)
                 img.setAttribute("y",-CONF.image.height/2)
