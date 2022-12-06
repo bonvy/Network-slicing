@@ -100,8 +100,8 @@ elem.update = function () {
                 console.log("ehi")
                 img = document.createElement("img")
                 img.src="./router.svg"
-                img.x=-25
-                img.y=-20
+                img.setAttribute(x,-25)
+                img.setAttribute(y,-20)
                 element.append(img)
       
             }else{
