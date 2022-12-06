@@ -98,7 +98,7 @@ elem.update = function () {
     
    
     nodeEnter.append("image")
-        .attr("xlink:href", image(d.dpid))
+        .attr("xlink:href", function(d){console.log(image(d.dpid))})
         .attr("x", -CONF.image.width/2)
         .attr("y", -CONF.image.height/2)
         .attr("width", CONF.image.width)
