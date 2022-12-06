@@ -31,7 +31,7 @@ function getInfo(obj){
         if(obj.ipv4[0]!=undefined)
             tmp=obj.ipv4[0]
 
-        return "mac: "+obj.mac+" ipv4: "+tmp
+        return "mac: "+obj.mac+"\n ipv4: "+tmp
     }
 }
 
