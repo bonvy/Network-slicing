@@ -95,7 +95,7 @@ elem.update = function () {
         .nodes(topo.nodes)
         .links(topo.links)
         .start();
-    console.log(links)
+    console.log(topo.links)
     this.link = this.link.data(topo.links);
     this.link.exit().remove();
     this.link.enter().append("line")
