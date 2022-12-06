@@ -27,6 +27,9 @@ function trim_zero(obj) {
 function dpid_to_int(dpid) {
     return Number("0x" + dpid);
 }
+function image(tmp){
+    return tmp==undefined
+}
 
 var elem = {
     force: d3.layout.force()
@@ -93,26 +96,13 @@ elem.update = function () {
         .on("dblclick", function(d) { d3.select(this).classed("fixed", d.fixed = false); })
         .call(this.drag);
     
-    tmp = nodeEnter[0]
-    console.log(tmp)
-    tmp.forEach(function(element){
-            if(element.__data__.dpid!=null){
-                console.log("ehi")
-                console.log("ehi")
-                img = document.createElement("img")
-                img.setAttribute("src","./router.svg")
-                img.setAttribute("x", -CONF.image.width/2)
-                img.setAttribute("y",-CONF.image.height/2)
-                img.setAttribute("width",CONF.image.width)
-                img.setAttribute("height", CONF.image.height)
-
-                element.append(img)
-      
-            }else{
-                console.log("buu")
-            }
-    })
-
+   
+    nodeEnter.append("image")
+        .attr("xlink:href", image(d.dpid))
+        .attr("x", -CONF.image.width/2)
+        .attr("y", -CONF.image.height/2)
+        .attr("width", CONF.image.width)
+        .attr("height", CONF.image.height);
     nodeEnter.append("text")
         .attr("dx", -CONF.image.width/2)
         .attr("dy", CONF.image.height-10)
