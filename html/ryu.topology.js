@@ -162,8 +162,8 @@ var topo = {
             source: index,
             target: target,
             port:{
-                src: 0,
-                dst: 0
+                src: {},
+                dst: {}
             }
         }
         console.log("ecco")
@@ -174,8 +174,8 @@ var topo = {
         for (var i = 0; i < hosts.length; i++) {
             
             this.nodes[t]=hosts[i]
-            
-            this.add_Host_Sw_link(t,hosts[i])
+            console.log(hosts.port)
+            this.add_Host_Sw_link(,hosts[i])
             t++;
         }
         this.refresh_node_index();
