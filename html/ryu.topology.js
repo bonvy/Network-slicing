@@ -28,10 +28,10 @@ function dpid_to_int(dpid) {
     return Number("0x" + dpid);
 }
 function image(tmp){
-    if (tmp==undefined){
+    if (tmp!=undefined){
         return "./router.svg"
     }else{
-        return ""
+        return "./host.svg"
     }
 }
 
