@@ -21,12 +21,14 @@ ws.onmessage = function(event) {
 }
 
 function trim_zero(obj) {
+    return String(obj).replace(/^0+/, "");
+}
+function getInfo(obj){
     if(obj.dpid!=undefined){
-        return "dpid: "+String(obj.dpid).replace(/^0+/, "");
+        return "dpid: "+ String(obj.dpid).replace(/^0+/, "");
     }else{
         return "mac: "+obj.mac
     }
-    
 }
 
 function dpid_to_int(dpid) {
@@ -115,7 +117,7 @@ elem.update = function () {
     nodeEnter.append("text")
         .attr("dx", -CONF.image.width/2)
         .attr("dy", CONF.image.height-10)
-        .text(function(d) { return trim_zero(d); });
+        .text(function(d) { return getInfo(d) });
 
     console.log(nodeEnter)
 
