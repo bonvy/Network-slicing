@@ -100,7 +100,7 @@ elem.update = function () {
                 console.log("ehi")
                 console.log("ehi")
                 img = document.createElement("image")
-                img.src="./router.svg"
+                img.setAttribute("src","./router.svg")
                 img.setAttribute("x", -CONF.image.width/2)
                 img.setAttribute("y",-CONF.image.height/2)
                 img.setAttribute("width",CONF.image.width)
