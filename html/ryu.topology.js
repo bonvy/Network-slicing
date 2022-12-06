@@ -98,13 +98,14 @@ elem.update = function () {
     tmp.forEach(function(element){
             if(element.__data__.dpid!=null){
                 console.log("ehi")
-                img=document.createElement("image")
+                img=document.createElement("img")
                 img.src="./router.svg"
                 img.x=-CONF.image.width/2
                 img.y= -CONF.image.height/2
                 img.width=CONF.image.width
                 img.height=CONF.image.height
                 element.append(img)
+                element.opacity=0.0
       
             }else{
                 console.log("buu")
