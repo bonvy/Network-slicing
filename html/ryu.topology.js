@@ -102,7 +102,7 @@ elem.update = function () {
                 img.src="./router.svg"
                 img.attr(x,-25)
                 img.attr(y,-20)
-                element.append(img)
+                element.appendChild(img)
       
             }else{
                 console.log("buu")
