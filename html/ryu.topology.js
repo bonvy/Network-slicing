@@ -166,7 +166,7 @@ var topo = {
                 dst: 0
             }
         }
-        this.links.push(link)
+        this.links.push(link);
     },
     add_hosts: function (hosts,nodes) {
         t=nodes.length
