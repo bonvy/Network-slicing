@@ -28,7 +28,11 @@ function dpid_to_int(dpid) {
     return Number("0x" + dpid);
 }
 function image(tmp){
-    return tmp==undefined
+    if (tmp==undefined){
+        return "./router.svg"
+    }else{
+        return ""
+    }
 }
 
 var elem = {
@@ -98,7 +102,7 @@ elem.update = function () {
     
    
     nodeEnter.append("image")
-        .attr("xlink:href", function(d){console.log(image(d.dpid))})
+        .attr("xlink:href", function(d){return image(d.dpid)})
         .attr("x", -CONF.image.width/2)
         .attr("y", -CONF.image.height/2)
         .attr("width", CONF.image.width)
