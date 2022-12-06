@@ -94,7 +94,7 @@ elem.update = function () {
         .call(this.drag);
     
     tmp = nodeEnter[0]
-    console.log(tmp[0].__data__.dpid)
+    console.log(tmp[0].__data__)
     tmp.forEach(element => console.log("ciao"))
     nodeEnter.append("image")
         .attr("xlink:href", "./router.svg")
