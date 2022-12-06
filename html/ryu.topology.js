@@ -98,12 +98,13 @@ elem.update = function () {
     tmp.forEach(function(element){
             if(element.__data__.dpid!=null){
                 console.log("ehi")
-                element.appendChild(document.createElement("img"))
-                    .attr("xlink:href", "./router.svg")
-                    .attr("x", -CONF.image.width/2)
-                    .attr("y", -CONF.image.height/2)
-                    .attr("width", CONF.image.width)
-                    .attr("height", CONF.image.height);
+                img=document.createElement("img")
+                img.src="./router.svg"
+                img.x=-CONF.image.width/2
+                img.y= -CONF.image.height/2
+                img.width=CONF.image.width
+                img.height=CONF.image.height
+                element.appendChild(img)
       
             }else{
                 console.log("buu")
