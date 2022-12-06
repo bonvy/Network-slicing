@@ -104,12 +104,7 @@ elem.update = function () {
                 img.y= -CONF.image.height/2
                 img.width=CONF.image.width
                 img.height=CONF.image.height
-                element.appendChild(document.createElement())
-                    .attr("xlink:href", "./router.svg")
-                    .attr("x", -CONF.image.width/2)
-                    .attr("y", -CONF.image.height/2)
-                    .attr("width", CONF.image.width)
-                    .attr("height", CONF.image.height);
+                element.appendChild(img)
       
             }else{
                 console.log("buu")
