@@ -174,6 +174,7 @@ var topo = {
             
             this.nodes[t]=hosts[i]
             console.log(nodes[0])
+            console.log(hosts[i].port.dpid)
             this.add_Host_Sw_link(t,hosts[i])
             t++;
         }
