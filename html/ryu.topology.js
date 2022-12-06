@@ -148,7 +148,7 @@ var topo = {
         this.add_nodes(data.switches);
         this.add_links(data.links);
         this.add_hosts(data.hosts,this.nodes);
-        console.log(data)
+        console.log(links)
         
     },
     add_nodes: function (nodes) {
