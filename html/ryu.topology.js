@@ -27,8 +27,11 @@ function getInfo(obj){
     if(obj.dpid!=undefined){
         return "dpid: "+ String(obj.dpid).replace(/^0+/, "");
     }else{
-        console.log(obj.ipv4[0])
-        return "mac: "+obj.mac
+        tmp=""
+        if(obj.ipv4[0]!=undefined)
+            tmp=obj.ipv4[0]
+
+        return "mac: "+obj.mac+" ipv4: "+tmp
     }
 }
 
