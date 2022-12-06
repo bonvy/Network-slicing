@@ -21,7 +21,7 @@ ws.onmessage = function(event) {
 }
 
 function trim_zero(obj) {
-    return String(obj).replace(/^0+/, "");
+    console.log(d)
 }
 
 function dpid_to_int(dpid) {
@@ -110,7 +110,7 @@ elem.update = function () {
     nodeEnter.append("text")
         .attr("dx", -CONF.image.width/2)
         .attr("dy", CONF.image.height-10)
-        .text(function(d) { return "dpid: " + trim_zero(d.dpid); });
+        .text(function(d) { return "dpid: " + trim_zero(d); });
 
     console.log(nodeEnter)
 
