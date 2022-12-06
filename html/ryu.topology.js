@@ -177,7 +177,7 @@ var topo = {
 
             }
         }
-    }
+    },
     add_links: function (links) {
        
         for (var i = 0; i < links.length; i++) {
