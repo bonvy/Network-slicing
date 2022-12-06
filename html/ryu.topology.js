@@ -21,7 +21,7 @@ ws.onmessage = function(event) {
 }
 
 function trim_zero(obj) {
-    console.log(d)
+    console.log(obj)
 }
 
 function dpid_to_int(dpid) {
