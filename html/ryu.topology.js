@@ -122,7 +122,7 @@ elem.update = function () {
 
     console.log(nodeEnter)
 
-    var ports = topo.get_ports();
+    //var ports = topo.get_ports();
     this.port.remove();
     this.port = this.svg.selectAll(".port").data(ports);
     var portEnter = this.port.enter().append("g")
