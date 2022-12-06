@@ -98,17 +98,17 @@ elem.update = function () {
     tmp.forEach(function(element){
             if(element.__data__.dpid!=null){
                 console.log("ehi")
-                img = document.createElement("img")
+                img = document.createElement("image")
                 img.src="./router.svg"
-                img.attr(x,-25)
-                img.attr(y,-20)
-                element.appendChild(img)
+                img.attr("x", -CONF.image.width/2)
+                img.attr("y",-CONF.image.height/2)
+                element.append(img)
       
             }else{
                 console.log("buu")
             }
     })
-   
+ 
     nodeEnter.append("text")
         .attr("dx", -CONF.image.width/2)
         .attr("dy", CONF.image.height-10)
