@@ -21,13 +21,11 @@ ws.onmessage = function(event) {
 }
 
 function trim_zero(obj) {
-    console.log(obj)
-    if(obj.dpid==undefined){
-         return "mac: "+obj.mac+" ip: "+ipv4
+    if(obj.dpid!=undefined){
+        return "dpid: "+String(obj.dpid).replace(/^0+/, "");
     }else{
-        return "dpid: "+obj.dpid
+        return "mac: "+obj.mac
     }
-       
     
 }
 
@@ -117,7 +115,7 @@ elem.update = function () {
     nodeEnter.append("text")
         .attr("dx", -CONF.image.width/2)
         .attr("dy", CONF.image.height-10)
-        .text(function(d) { return  trim_zero(d); });
+        .text(function(d) { return trim_zero(d); });
 
     console.log(nodeEnter)
 
