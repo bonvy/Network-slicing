@@ -23,9 +23,9 @@ ws.onmessage = function(event) {
 function trim_zero(obj) {
     console.log(obj)
     if(obj.dpid==undefined){
-         return "mac: "+obj.mac+" ip: "+ipv4[0]
+         return "mac: "+obj.mac+" ip: "+ipv4
     }else{
-        return "mac: "+obj.mac
+        return "dpid: "+obj.dpid
     }
        
     
