@@ -99,12 +99,17 @@ elem.update = function () {
             if(element.__data__.dpid!=null){
                 console.log("ehi")
                 img=document.createElement("img")
-                img.src="./router.svg"
+                img.href="./router.svg"
                 img.x=-CONF.image.width/2
                 img.y= -CONF.image.height/2
                 img.width=CONF.image.width
                 img.height=CONF.image.height
-                element.appendChild(img)
+                element.appendChild(document.createElement())
+                    .attr("xlink:href", "./router.svg")
+                    .attr("x", -CONF.image.width/2)
+                    .attr("y", -CONF.image.height/2)
+                    .attr("width", CONF.image.width)
+                    .attr("height", CONF.image.height);
       
             }else{
                 console.log("buu")
