@@ -100,9 +100,10 @@ elem.update = function () {
                 console.log("ehi")
                 img = document.createElement("image")
                 img.src="./router.svg"
-                img.attr("x", -CONF.image.width/2)
-                img.attr("y",-CONF.image.height/2)
+               
                 element.append(img)
+                    .attr("x", -CONF.image.width/2)
+                    .attr("y",-CONF.image.height/2)
       
             }else{
                 console.log("buu")
