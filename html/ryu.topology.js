@@ -167,11 +167,11 @@ var topo = {
             target: target,
             
             port:{
-                src: {},
+                src: this.getSwitchPort(index,target.port),
                 dst: target.port
             }
         }
-        this.getSwitchPort(index,target.port)
+        
        
         this.links.push(link);
     },
@@ -220,7 +220,16 @@ var topo = {
                 if(hosts[t].port.dpid==dpid){
                     
                     this.hosts.splice(this.get_host_index(hosts[t]),1)
-                    
+                    var link={
+                        source: this.nodes[node_index],
+                        target: hosts[t],
+                        
+                        port:{
+                            src: this.getSwitchPort(this.nodes[node_index],hosts[t].port),
+                            dst: hosts[t].port
+                        }
+                    }
+                    this.delete_links(link)
                 }
             }
             this.refresh_host_index();
@@ -337,9 +346,7 @@ var topo = {
             console.log(sw.ports[i])
             console.log(port)
             if(sw.ports[i].name==port.name){
-                console.log("yes")
-            }else{
-               
+                return sw.ports[i]
             }
         }
     },
