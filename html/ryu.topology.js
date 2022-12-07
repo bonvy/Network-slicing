@@ -313,6 +313,7 @@ var topo = {
 var rpc = {
     event_switch_enter: function (params) {
         var switches = [];
+        console.group("switccch")
         for(var i=0; i < params.length; i++){
             switches.push({"dpid":params[i].dpid,"ports":params[i].ports});
         }
@@ -341,6 +342,7 @@ var rpc = {
     },
     event_host_enter: function (params) {
         var hosts = [];
+        console.group("hostt")
         for(var i=0; i < params.length; i++){
             hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
         }
