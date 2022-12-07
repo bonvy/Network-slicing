@@ -210,19 +210,16 @@ var topo = {
             console.log("delete switch: " + JSON.stringify(nodes[i]));
 
             node_index = this.get_node_index(nodes[i]);
-            this.nodes.splice(node_index, 1);
+            if(this.node_index==null){
+                
+            }else{
+                this.nodes.splice(node_index, 1);
+            }
+            
         }
         this.refresh_node_index();
     },
-    delete_hosts: function (hosts) {
-        for (var i = 0; i < hosts.length; i++) {
-            console.log("delete host: " + JSON.stringify(hostss[i]));
-
-            host_index = this.get_node_index(hosts[i]);
-            this.hosts.splice(host_index, 1);
-        }
-        this.refresh_host_index();
-    },
+    
     delete_links: function (links) {
         for (var i = 0; i < links.length; i++) {
             if (!is_valid_link(links[i])) continue;
@@ -309,9 +306,9 @@ var rpc = {
     },
     event_switch_leave: function (params) {
         var switches = [];
-        for(var i=0; i < params.length; i++){
-            switches.push({"dpid":params[i].dpid,"ports":params[i].ports});
-        }
+      
+        switches.push({"dpid":params[i].dpid,"ports":params[i].ports});
+      
         topo.delete_nodes(switches);
         elem.update();
         return "";
@@ -337,6 +334,7 @@ var rpc = {
     },
     event_hosts_leave: function (params) {
         var hosts = [];
+        console.log("hollaaaaa")
         for(var i=0; i < params.length; i++){
             hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
         }
