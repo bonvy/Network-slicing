@@ -151,7 +151,7 @@ var topo = {
         this.add_nodes(data.switches);
         this.add_links(data.links);
         this.add_hosts(data.hosts,this.nodes);
-       console.log(this.hosts)
+        console.log(this.nodes)
         
     },
     add_nodes: function (nodes) {
@@ -173,14 +173,13 @@ var topo = {
         this.links.push(link);
     },
     add_hosts: function (hosts,nodes) {
-        t=nodes.length
         for (var i = 0; i < hosts.length; i++) {
             
             this.hosts.push(hosts[i])
             var tmp=hosts[i].port
             console.log(nodes[this.get_node_index(tmp)])
             this.add_Host_Sw_link(nodes[this.get_node_index(tmp)],hosts[i])
-            t++;
+            
         }
         
         this.refresh_host_index();
