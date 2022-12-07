@@ -227,7 +227,7 @@ var topo = {
                             dst: {}
                         }
                     }
-                    //this.links.splice(this.get_link_index(link),1)
+                    this.links.splice(this.get_link_index(link),1)
                     this.hosts.splice(t,1)
                     this.nodes.splice(hosts_index, 1);
                 }
