@@ -215,6 +215,16 @@ var topo = {
                     
                     hosts_index=this.get_node_index(this.hosts[i])
                     console.log(hosts_index)
+                    var tmp=hosts[i].port
+                    var link={
+                        source: this.get_node_index(tmp),
+                        target: host[i],
+                        port:{
+                            src: {},
+                            dst: {}
+                        }
+                    }
+                    this.links.splice(this.get_link_index(link),1)
                     this.hosts.splice(i,1)
                     this.nodes.splice(hosts_index, 1);
                 }
