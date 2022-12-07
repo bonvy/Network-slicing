@@ -180,7 +180,7 @@ var topo = {
             this.add_Host_Sw_link(nodes[this.get_node_index(tmp)],hosts[i])
             t++;
         }
-        this.refresh_node_index();
+       
     },
  
     add_links: function (links) {
@@ -220,7 +220,12 @@ var topo = {
                 }
             }
             this.nodes.splice(node_index, 1);
-
+            if(this.nodes.length==this.hosts.length){
+                for(i=0;i<nodes.length;i++){
+                    this.nodes.splice(i,1)
+                    this.hosts.splice(i,1)
+                }
+            }
             
             
         }
@@ -238,13 +243,8 @@ var topo = {
     },
     get_node_index: function (node) {
         for (var i = 0; i < this.nodes.length; i++) {
-            if (node.dpid == this.nodes[i].dpid) {
-                return i;
-            }else{
-                if(node.mac=this.nodes[i].mac){
-                    return i;
-                }
-            }
+            return i;
+          
         }
         return null;
     },
@@ -299,11 +299,9 @@ var topo = {
     refresh_node_index: function(){
         this.node_index = {};
         for (var i = 0; i < this.nodes.length; i++) {
-            if(this.nodes[i].dpid!=undefined){
-                this.node_index[this.nodes[i].dpid] = i;
-            }else{
-                this.node_index[this.nodes[i].mac]=i
-            }
+           
+            this.node_index[this.nodes[i].dpid] = i;
+            
             
         }
     },
