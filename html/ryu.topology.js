@@ -243,6 +243,7 @@ var topo = {
     },
     get_node_index: function (node) {
         for (var i = 0; i < this.nodes.length; i++) {
+            console.log(node.dpid)
             if(node.dpid!=undefined){
                 if (node.dpid == this.nodes[i].dpid) {
                     return i;
