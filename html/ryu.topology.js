@@ -171,7 +171,7 @@ var topo = {
                 dst: target.port
             }
         }
-        console.log(this.getSwitchPort(index,target.port))
+        this.getSwitchPort(index,target.port)
        
         this.links.push(link);
     },
@@ -335,6 +335,8 @@ var topo = {
         for(i=0;i<sw.ports.length;i++){
             if(sw.ports[i]==port){
                 console.log(yes)
+            }else{
+                console.log("ops")
             }
         }
     },
