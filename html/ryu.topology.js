@@ -142,7 +142,7 @@ function is_valid_link(link) {
 var topo = {
     nodes: [],
     links: [],
-    
+    hosts: [],
     node_index: {}, // dpid -> index of nodes array
     initialize: function (data) {
         this.add_nodes(data.switches);
@@ -173,7 +173,7 @@ var topo = {
         for (var i = 0; i < hosts.length; i++) {
             
             this.nodes[t]=hosts[i]
-            
+            this.hosts[i]=hosts[i]
             console.log(hosts[i].port)
             var tmp=hosts[i].port
             console.log(nodes[this.get_node_index(tmp)])
@@ -210,11 +210,16 @@ var topo = {
             console.log("delete switch: " + JSON.stringify(nodes[i]));
 
             node_index = this.get_node_index(nodes[i]);
-            if(this.node_index==null){
-                
-            }else{
-                this.nodes.splice(node_index, 1);
+            for(i=0;i<this.hosts.length;i++){
+                if(this.hosts[i].port.dpid=nodes[i].dpid){
+                    hosts_index=this.get_node_index(this.hosts[i])
+                    this.hosts.splice(i,1)
+                    this.nodes.splice(hosts_index, 1);
+                }
             }
+            this.nodes.splice(node_index, 1);
+
+            
             
         }
         this.refresh_node_index();
@@ -233,6 +238,10 @@ var topo = {
         for (var i = 0; i < this.nodes.length; i++) {
             if (node.dpid == this.nodes[i].dpid) {
                 return i;
+            }else{
+                if(node.mac=this.nodes[i].mac){
+                    return i;
+                }
             }
         }
         return null;
@@ -288,7 +297,12 @@ var topo = {
     refresh_node_index: function(){
         this.node_index = {};
         for (var i = 0; i < this.nodes.length; i++) {
-            this.node_index[this.nodes[i].dpid] = i;
+            if(this.nodes[i].dpid!=undefined){
+                this.node_index[this.nodes[i].dpid] = i;
+            }else{
+                this.node_index[this.nodes[i].mac]=i
+            }
+            
         }
     },
    
@@ -306,9 +320,9 @@ var rpc = {
     },
     event_switch_leave: function (params) {
         var switches = [];
-      
-        switches.push({"dpid":params[i].dpid,"ports":params[i].ports});
-      
+        for(var i=0; i < params.length; i++){
+            switches.push({"dpid":params[i].dpid,"ports":params[i].ports});
+        }
         topo.delete_nodes(switches);
         elem.update();
         return "";
@@ -334,7 +348,6 @@ var rpc = {
     },
     event_hosts_leave: function (params) {
         var hosts = [];
-        console.log("hollaaaaa")
         for(var i=0; i < params.length; i++){
             hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
         }
