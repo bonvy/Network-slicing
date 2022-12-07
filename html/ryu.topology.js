@@ -219,13 +219,9 @@ var topo = {
                 dpid=this.nodes[node_index].dpid
                 if(hosts[t].port.dpid==dpid){
                     var link={
-                        source: this.nodes[node_index],
-                        target: hosts[t],
+                        src: this.getSwitchPort(this.nodes[node_index],hosts[t].port),
+                        dst: hosts[t].port
                         
-                        port:{
-                            src: this.getSwitchPort(this.nodes[node_index],hosts[t].port),
-                            dst: hosts[t].port
-                        }
                     }
                     this.links.slice(this.get_link_index(link),1)
                     this.hosts.splice(this.get_host_index(hosts[t]),1)
@@ -278,7 +274,7 @@ var topo = {
     },
     get_link_index: function (link) {
         for (var i = 0; i < this.links.length; i++) {
-            if(link.port.dst.dpid!=undefined){
+            if(link.dst.dpid!=undefined){
                 if (link.src.dpid == this.links[i].port.src.dpid &&
                     link.src.port_no == this.links[i].port.src.port_no &&
                     link.dst.dpid == this.links[i].port.dst.dpid &&
