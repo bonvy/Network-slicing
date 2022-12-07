@@ -211,18 +211,19 @@ var topo = {
     delete_nodes: function (nodes) {
         for (var i = 0; i < nodes.length; i++) {
             console.log("delete switch: " + JSON.stringify(nodes[i]));
-
+            hosts=[].concat(this.hosts)
             node_index = this.get_node_index(nodes[i]);
-            for(t=0;t<this.hosts.length;t++){
+            for(t=0;t<hosts.length;t++){
                 console.log("prova")
                 dpid=this.nodes[node_index].dpid
-                if(this.hosts[t].port.dpid==dpid){
+                if(hosts[t].port.dpid==dpid){
                     
-                    this.hosts.splice(this.get_host_index(this.hosts[t]),1)
+                    this.hosts.splice(this.get_host_index(hosts[t]),1)
                     
                 }
             }
             this.refresh_host_index();
+
             this.nodes.splice(node_index, 1);
 
             
