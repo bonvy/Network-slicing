@@ -167,7 +167,7 @@ var topo = {
             target: target,
             
             port:{
-                src: this.getSwitchPort(index,target.port),
+                src: target.port,
                 dst: target.port
             }
         }
@@ -277,12 +277,21 @@ var topo = {
     },
     get_link_index: function (link) {
         for (var i = 0; i < this.links.length; i++) {
-            if (link.src.dpid == this.links[i].port.src.dpid &&
+            if(link.dst.dpid==undefined){
+                if (link.src.dpid == this.links[i].port.src.dpid &&
+                    link.src.port_no == this.links[i].port.src.port_no &&
+                    link.dst.port_no == this.links[i].port.dst.port_no) {
+                return i;
+            }
+            }else{
+                if (link.src.dpid == this.links[i].port.src.dpid &&
                     link.src.port_no == this.links[i].port.src.port_no &&
                     link.dst.dpid == this.links[i].port.dst.dpid &&
                     link.dst.port_no == this.links[i].port.dst.port_no) {
                 return i;
             }
+            }
+            
         }
         return null;
     },
