@@ -214,9 +214,10 @@ var topo = {
 
             node_index = this.get_node_index(nodes[i]);
             for(t=0;t<this.hosts.length;t++){
-                dpid=this.nodes[this.node_index]
+                console.log("prova")
+                dpid=this.nodes[node_index].dpid
                 if(this.hosts[t].port.dpid==dpid){
-                    console.log("prova")
+                    
                     this.hosts.splice(t,1)
                 }
             }
