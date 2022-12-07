@@ -216,12 +216,14 @@ var topo = {
             node_index = this.get_node_index(nodes[i]);
             for(t=0;t<this.hosts.length;t++){
                 console.log(this.hosts[t].port.dpid)
-                console.log(nodes[node_index].dpid)
-                if(this.hosts[t].port.dpid==nodes[this.node_index].dpid){
-                    
+                console.log(nodes[i].dpid)
+                if(this.hosts[t].port.dpid==nodes[i].dpid){
+                    host_index=this.get_node_index(this.hosts[t].mac)
+                    console.log(host_index)
+                    console.log(node_index)
                 }
             }
-            //this.nodes.splice(node_index, 1);
+            this.nodes.splice(node_index, 1);
 
             
             
