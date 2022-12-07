@@ -162,7 +162,7 @@ mininet> dpctl dump-flows NUMBER #all-flowTable-of-the-specified-switch
 
 - Get the list of the switches connected to the controller → **localhost:8080/stats/switches**
 - Get the list of the  hosts → **localhost:8080/v1.0/topology/hosts**
-- Get the links of the topology → loaclhost:8080/v1.0/topology/links**
+- Get the links of the topology → **loaclhost:8080/v1.0/topology/links**
 - Get all flows stats of the switch which specified with Datapath ID → **localhost:8080/stats/flow/<dpid>**
 - Get all switch table stats specified with Datapath ID → **localhost:8080/stats/table/<dpid>**
 - Get ports stats of the switch which specified with Datapath ID → **localhost:8080/stats/port/<dpid>**
