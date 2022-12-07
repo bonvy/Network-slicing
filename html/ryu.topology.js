@@ -214,22 +214,8 @@ var topo = {
 
             node_index = this.get_node_index(nodes[i]);
             for(t=0;t<this.hosts.length;t++){
-                if(this.hosts[t].port.dpid=nodes[i].dpid){
-                    
-                    hosts_index=this.get_node_index(this.hosts[t])
-                    console.log(hosts_index)
-                    var tmp=this.hosts[t].port
-                    var link={
-                        source: this.get_node_index(tmp),
-                        target: this.hosts[t],
-                        port:{
-                            src: {},
-                            dst: {}
-                        }
-                    }
-                    this.links.splice(this.get_link_index(link),1)
-                    this.hosts.splice(t,1)
-                    this.nodes.splice(hosts_index, 1);
+                if(this.hosts[t].port.dpid==nodes[this.node_index].dpid){
+                    console.log("hola")
                 }
             }
             this.nodes.splice(node_index, 1);
