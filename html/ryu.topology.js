@@ -132,9 +132,9 @@ elem.update = function () {
     portEnter.append("text")
         .attr("dx", -3)
         .attr("dy", 3)
-        .text(function(d) { return trim_zero(d.port_no); });
+        .text(function(d) { return trim_zero(d.port_no); });*/
 };
-*/
+
 function is_valid_link(link) {
     return (link.src.dpid < link.dst.dpid)
 }
