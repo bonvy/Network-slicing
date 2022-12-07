@@ -92,7 +92,7 @@ elem.link = elem.svg.selectAll(".link");
 elem.port = elem.svg.selectAll(".port");
 elem.update = function () {
     
-    tmp=topo.hosts.concat(topo.nodes)
+    tmp=topo.nodes.concat(topo.hosts)
     console.log(tmp)
     this.force
         .nodes(tmp)
