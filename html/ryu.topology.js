@@ -122,7 +122,7 @@ elem.update = function () {
 
     console.log(nodeEnter)
 
-    //var ports = topo.get_ports();
+    /*var ports = topo.get_ports();
     this.port.remove();
     this.port = this.svg.selectAll(".port").data(ports);
     var portEnter = this.port.enter().append("g")
@@ -134,7 +134,7 @@ elem.update = function () {
         .attr("dy", 3)
         .text(function(d) { return trim_zero(d.port_no); });
 };
-
+*/
 function is_valid_link(link) {
     return (link.src.dpid < link.dst.dpid)
 }
