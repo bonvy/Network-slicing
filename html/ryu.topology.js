@@ -249,7 +249,7 @@ var topo = {
                     return i;
                 }
             }else{
-                console.log(node.mac)
+                
                 if(node.mac==this.nodes[i].mac){
                     return i;
                 }
