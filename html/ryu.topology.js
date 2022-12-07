@@ -165,11 +165,14 @@ var topo = {
         var link={
             source: index,
             target: target,
+            
             port:{
                 src: {},
                 dst: {}
             }
         }
+        console.log(link.source)
+        console.log(link.source)
         this.links.push(link);
     },
     add_hosts: function (hosts,nodes) {
@@ -212,7 +215,7 @@ var topo = {
             hosts=[].concat(this.hosts)
             node_index = this.get_node_index(nodes[i]);
             for(t=0;t<hosts.length;t++){
-                console.log("prova")
+               
                 dpid=this.nodes[node_index].dpid
                 if(hosts[t].port.dpid==dpid){
                     
@@ -259,7 +262,6 @@ var topo = {
                 return i;
             }
           
-           
         }
         return null;
     },
