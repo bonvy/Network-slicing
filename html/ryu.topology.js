@@ -5,7 +5,7 @@ var CONF = {
     },
     force: {
         width: 960,
-        height: 500,
+        height: 700,
         dist: 200,
         charge: -600
     }
@@ -200,6 +200,7 @@ var topo = {
                     dst: links[i].dst
                 }
             }
+            console.log(link)
             this.links.push(link);
         }
     },
