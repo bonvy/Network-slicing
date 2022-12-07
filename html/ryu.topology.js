@@ -223,7 +223,7 @@ var topo = {
                         dst: hosts[t].port
                         
                     }
-                    this.links.slice(this.get_link_index(link),1)
+                    this.delete_links([].concat(link))
                     this.hosts.splice(this.get_host_index(hosts[t]),1)
                     
                    
@@ -274,22 +274,14 @@ var topo = {
     },
     get_link_index: function (link) {
         for (var i = 0; i < this.links.length; i++) {
-            if(link.dst.dpid!=undefined){
+            
                 if (link.src.dpid == this.links[i].port.src.dpid &&
                     link.src.port_no == this.links[i].port.src.port_no &&
                     link.dst.dpid == this.links[i].port.dst.dpid &&
                     link.dst.port_no == this.links[i].port.dst.port_no) {
                 return i;
             }
-            }else{
-             
-            if (link.src.dpid == this.links[i].port.src.dpid &&
-                link.src.port_no == this.links[i].port.src.port_no &&
-                link.dst.port_no == this.links[i].port.dst.port_no) {
-                    console("ehii: ")+i
-                return i;
-            }
-            }
+            
             
         }
         return null;
