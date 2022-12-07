@@ -238,9 +238,9 @@ var topo = {
     },
     get_node_index: function (node) {
         for (var i = 0; i < this.nodes.length; i++) {
-         
-            return i;
-            
+            if (node.dpid == this.nodes[i].dpid) {
+                return i;
+            }
         }
         return null;
     },
