@@ -286,7 +286,8 @@ var topo = {
             if (link.src.dpid == this.links[i].port.src.dpid &&
                 link.src.port_no == this.links[i].port.src.port_no &&
                 link.dst.port_no == this.links[i].port.dst.port_no) {
-            return i;
+                    console("ehii: ")+i
+                return i;
             }
             }
             
