@@ -226,6 +226,7 @@ var topo = {
             
             
         }
+        this.refresh_host_index();
         this.refresh_node_index();
     },
     
