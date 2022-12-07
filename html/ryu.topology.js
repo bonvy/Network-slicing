@@ -336,7 +336,7 @@ var topo = {
             console.log("giro")
             console.log(sw.ports[i])
             console.log(port)
-            if(sw.ports[i]==port){
+            if(sw.ports[i].name==port.name){
                 console.log("yes")
             }else{
                
