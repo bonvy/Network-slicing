@@ -219,6 +219,7 @@ var topo = {
                 console.log(nodes[i].dpid)
                 if(this.hosts[t].port.dpid==nodes[i].dpid){
                     host_index=this.get_node_index(this.hosts[t].mac)
+                    console.log("da qua: "+this.hosts[t].mac)
                     console.log(host_index)
                     console.log(node_index)
                 }
