@@ -124,7 +124,7 @@ elem.update = function () {
         .text(function(d) { return getInfo(d) });
 
    
-    /*var ports = topo.get_ports();
+    var ports = topo.get_ports();
     this.port.remove();
     this.port = this.svg.selectAll(".port").data(ports);
     var portEnter = this.port.enter().append("g")
@@ -134,7 +134,7 @@ elem.update = function () {
     portEnter.append("text")
         .attr("dx", -3)
         .attr("dy", 3)
-        .text(function(d) { return trim_zero(d.port_no); });*/
+        .text(function(d) { return trim_zero(d.port_no); });
 };
 
 function is_valid_link(link) {
