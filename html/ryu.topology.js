@@ -93,11 +93,12 @@ elem.port = elem.svg.selectAll(".port");
 elem.update = function () {
     
     tmp=topo.hosts.concat(topo.nodes)
+    console.log(tmp)
     this.force
         .nodes(tmp)
         .links(topo.links)
         .start();
-    console.log(topo.links)
+   
     this.link = this.link.data(topo.links);
     this.link.exit().remove();
     this.link.enter().append("line")
@@ -122,8 +123,7 @@ elem.update = function () {
         .attr("dy", CONF.image.height-10)
         .text(function(d) { return getInfo(d) });
 
-    console.log(nodeEnter)
-
+   
     /*var ports = topo.get_ports();
     this.port.remove();
     this.port = this.svg.selectAll(".port").data(ports);
@@ -151,10 +151,7 @@ var topo = {
         this.add_nodes(data.switches);
         this.add_links(data.links);
         this.add_hosts(data.hosts,this.nodes);
-        console.log(this.links)
-        console.log(this.nodes)
-        console.log(this.hosts)
-        console.log(this.node_index)
+       
         
     },
     add_nodes: function (nodes) {
