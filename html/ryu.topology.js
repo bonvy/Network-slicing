@@ -223,7 +223,7 @@ var topo = {
                         dst: hosts[t].port
                         
                     }
-                    this.delete_links([].concat(link))
+                    console.log(this.get_link_index(link))
                     this.hosts.splice(this.get_host_index(hosts[t]),1)
                     
                    
