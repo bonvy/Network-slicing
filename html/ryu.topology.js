@@ -91,8 +91,10 @@ elem.node = elem.svg.selectAll(".node");
 elem.link = elem.svg.selectAll(".link");
 elem.port = elem.svg.selectAll(".port");
 elem.update = function () {
+    
+    tmp=topo.hosts.concat(topo.nodes)
     this.force
-        .nodes(topo.nodes)
+        .nodes(tmp)
         .links(topo.links)
         .start();
     console.log(topo.links)
@@ -144,6 +146,7 @@ var topo = {
     links: [],
     hosts: [],
     node_index: {}, // dpid -> index of nodes array
+    host_index: {},
     initialize: function (data) {
         this.add_nodes(data.switches);
         this.add_links(data.links);
@@ -159,6 +162,7 @@ var topo = {
             this.nodes.push(nodes[i]);
         }
         this.refresh_node_index();
+        
     },
     add_Host_Sw_link(index,target){
         var link={
@@ -175,16 +179,14 @@ var topo = {
         t=nodes.length
         for (var i = 0; i < hosts.length; i++) {
             
-            this.nodes[t]=hosts[i]
             this.hosts[i]=hosts[i]
-            console.log(hosts[i].port)
             var tmp=hosts[i].port
             console.log(nodes[this.get_node_index(tmp)])
             this.add_Host_Sw_link(nodes[this.get_node_index(tmp)],hosts[i])
             t++;
         }
-        this.refresh_node_index();
         
+        this.refresh_host_index();
     },
  
     add_links: function (links) {
@@ -215,13 +217,9 @@ var topo = {
 
             node_index = this.get_node_index(nodes[i]);
             for(t=0;t<this.hosts.length;t++){
-                console.log(this.hosts[t].port.dpid)
-                console.log(nodes[i].dpid)
-                if(this.hosts[t].port.dpid==nodes[i].dpid){
-                    host_index=this.get_node_index(this.hosts[t].mac)
-                    console.log("da qua: "+this.hosts[t].mac)
-                    console.log(host_index)
-                    console.log(node_index)
+                dpid=this.nodes[this.node_index]
+                if(this.hosts[t].port.dpid==dpid){
+                    this.hosts.splice(t,1)
                 }
             }
             this.nodes.splice(node_index, 1);
@@ -244,16 +242,22 @@ var topo = {
     get_node_index: function (node) {
         for (var i = 0; i < this.nodes.length; i++) {
           
-            if(node.dpid!=undefined){
-                if (node.dpid == this.nodes[i].dpid) {
-                    return i;
-                }
-            }else{
-                
-                if(node.mac==this.nodes[i].mac){
-                    return i;
-                }
+     
+            if (node.dpid == this.nodes[i].dpid) {
+                return i;
             }
+          
+           
+        }
+        return null;
+    },
+    get_host_index: function (host) {
+        for (var i = 0; i < this.hosts.length; i++) {
+     
+            if (host.mac == this.hosts[i].mac) {
+                return i;
+            }
+          
            
         }
         return null;
@@ -309,13 +313,18 @@ var topo = {
     refresh_node_index: function(){
         this.node_index = {};
         for (var i = 0; i < this.nodes.length; i++) {
-            if(this.nodes[i].dpid!=undefined){
-                this.node_index[this.nodes[i].dpid] = i;   
-            }else{
-                this.node_index[this.nodes[i].mac] = i;
-            }
             
-           
+            this.node_index[this.nodes[i].dpid] = i;   
+              
+            
+        }
+    },
+    refresh_host_index: function(){
+        this.host_index = {};
+        for (var i = 0; i < this.hosts.length; i++) {
+            
+            this.host_index[this.hosts[i].mac] = i;   
+              
             
         }
     },
