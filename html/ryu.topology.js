@@ -343,9 +343,6 @@ var rpc = {
     event_host_enter: function (params) {
         var hosts = [];
         console.log("hostt")
-        for(var i=0; i < params.length; i++){
-            hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
-        }
         topo.add_hosts(hosts);
         elem.update();
         return "";

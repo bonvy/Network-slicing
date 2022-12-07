@@ -3,7 +3,7 @@ import os
 from webob.static import DirectoryApp
 from ryu.app.wsgi import ControllerBase, WSGIApplication, route
 from ryu.base import app_manager
-from ryu.app.wsgi import route
+
 
 
 PATH = os.path.dirname(__file__)
@@ -23,7 +23,7 @@ class GUIServerApp(app_manager.RyuApp):
 
 
 class GUIServerController(ControllerBase):
-    i=0
+    
     def __init__(self, req, link, data, **config):
         super(GUIServerController, self).__init__(req, link, data, **config)
         path = "%s/html/" % PATH
@@ -37,9 +37,6 @@ class GUIServerController(ControllerBase):
 
     
 
-    
-       
-    
 
 
 app_manager.require_app('ryu.app.rest_topology')
