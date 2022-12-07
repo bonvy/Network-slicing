@@ -218,15 +218,17 @@ var topo = {
                 dpid=this.nodes[node_index].dpid
                 if(this.hosts[t].port.dpid==dpid){
                     
-                    this.hosts.splice(t,1)
+                    this.hosts.splice(this.get_host_index(this.hosts[t]),1)
+                    
                 }
             }
+            this.refresh_host_index();
             this.nodes.splice(node_index, 1);
 
             
             
         }
-        this.refresh_host_index();
+        
         this.refresh_node_index();
     },
     
