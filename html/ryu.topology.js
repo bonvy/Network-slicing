@@ -168,11 +168,11 @@ var topo = {
             
             port:{
                 src: {},
-                dst: {}
+                dst: target.port
             }
         }
-        console.log(link.source)
-        console.log(link.target)
+        console.log(this.getSwitchPort(index,target.port))
+       
         this.links.push(link);
     },
     add_hosts: function (hosts,nodes) {
@@ -329,6 +329,13 @@ var topo = {
             this.host_index[this.hosts[i].mac] = i;   
               
             
+        }
+    },
+    getSwitchPort: function(sw,port){
+        for(i=0;i<sw.ports.length;i++){
+            if(sw.ports[i]==port){
+                console.log(yes)
+            }
         }
     },
    
