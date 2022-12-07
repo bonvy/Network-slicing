@@ -218,8 +218,6 @@ var topo = {
                
                 dpid=this.nodes[node_index].dpid
                 if(hosts[t].port.dpid==dpid){
-                    
-                    this.hosts.splice(this.get_host_index(hosts[t]),1)
                     var link={
                         source: this.nodes[node_index],
                         target: hosts[t],
@@ -229,7 +227,10 @@ var topo = {
                             dst: hosts[t].port
                         }
                     }
-                    this.delete_links(link)
+                    this.links.slice(this.get_link_index(link),1)
+                    this.hosts.splice(this.get_host_index(hosts[t]),1)
+                    
+                   
                 }
             }
             this.refresh_host_index();
