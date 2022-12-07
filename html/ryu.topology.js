@@ -213,22 +213,22 @@ var topo = {
             console.log("delete switch: " + JSON.stringify(nodes[i]));
 
             node_index = this.get_node_index(nodes[i]);
-            for(i=0;i<this.hosts.length;i++){
-                if(this.hosts[i].port.dpid=nodes[i].dpid){
+            for(t=0;t<this.hosts.length;t++){
+                if(this.hosts[t].port.dpid=nodes[i].dpid){
                     
-                    hosts_index=this.get_node_index(this.hosts[i])
+                    hosts_index=this.get_node_index(this.hosts[t])
                     console.log(hosts_index)
-                    var tmp=this.hosts[i].port
+                    var tmp=this.hosts[t].port
                     var link={
                         source: this.get_node_index(tmp),
-                        target: this.hosts[i],
+                        target: this.hosts[t],
                         port:{
                             src: {},
                             dst: {}
                         }
                     }
                     //this.links.splice(this.get_link_index(link),1)
-                    this.hosts.splice(i,1)
+                    this.hosts.splice(t,1)
                     this.nodes.splice(hosts_index, 1);
                 }
             }
