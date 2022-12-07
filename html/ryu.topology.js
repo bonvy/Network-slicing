@@ -104,7 +104,7 @@ elem.update = function () {
     this.link.enter().append("line")
         .attr("class", "link");
 
-    this.node = this.node.data(topo.nodes);
+    this.node = this.node.data(tmp);
     this.node.exit().remove();
     var nodeEnter = this.node.enter().append("g")
         .attr("class", "node")
