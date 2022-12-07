@@ -119,7 +119,6 @@ elem.update = function () {
         .attr("dx", -CONF.image.width/2)
         .attr("dy", CONF.image.height-10)
         .text(function(d) { return getInfo(d) });
-
     console.log(nodeEnter)
 
     /*var ports = topo.get_ports();
@@ -224,6 +223,7 @@ var topo = {
                 for(i=0;i<nodes.length;i++){
                     this.nodes.splice(i,1)
                     this.hosts.splice(i,1)
+                    this.links.slice(i,1)
                 }
             }
             
