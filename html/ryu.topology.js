@@ -218,7 +218,7 @@ var topo = {
                     var tmp=this.hosts[i].port
                     var link={
                         source: this.get_node_index(tmp),
-                        target: host[i],
+                        target: this.host[i],
                         port:{
                             src: {},
                             dst: {}
