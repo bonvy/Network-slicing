@@ -171,7 +171,7 @@ var topo = {
                 dst: target.port
             }
         }
-        
+        console.log(link)
        
         this.links.push(link);
     },
