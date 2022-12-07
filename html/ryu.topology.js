@@ -216,6 +216,7 @@ var topo = {
             for(t=0;t<this.hosts.length;t++){
                 dpid=this.nodes[this.node_index]
                 if(this.hosts[t].port.dpid==dpid){
+                    console.log("prova")
                     this.hosts.splice(t,1)
                 }
             }
