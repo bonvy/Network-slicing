@@ -172,7 +172,7 @@ var topo = {
             }
         }
         console.log(link.source)
-        console.log(link.source)
+        console.log(link.target)
         this.links.push(link);
     },
     add_hosts: function (hosts,nodes) {
