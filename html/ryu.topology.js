@@ -221,7 +221,7 @@ var topo = {
                     
                 }
             }
-            this.nodes.splice(node_index, 1);
+            //this.nodes.splice(node_index, 1);
 
             
             
