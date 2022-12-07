@@ -173,7 +173,7 @@ var topo = {
         }
         console.log(link)
        
-        this.add_links([].concat(link))
+        this.links.push(link);
     },
     add_hosts: function (hosts,nodes) {
         for (var i = 0; i < hosts.length; i++) {
