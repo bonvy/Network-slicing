@@ -333,7 +333,7 @@ var topo = {
     },
     getSwitchPort: function(sw,port){
         for(i=0;i<sw.ports.length;i++){
-            console("giro")
+            console.log("giro")
             console.log(sw.ports[i])
             console.log(port)
             if(sw.ports[i]==port){
