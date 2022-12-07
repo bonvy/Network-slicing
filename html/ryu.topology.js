@@ -247,6 +247,7 @@ var topo = {
     delete_links: function (links) {
         for (var i = 0; i < links.length; i++) {
             if (!is_valid_link(links[i])) continue;
+            console.log(links[i])
             console.log("delete link: " + JSON.stringify(links[i]));
 
             link_index = this.get_link_index(links[i]);
@@ -277,7 +278,7 @@ var topo = {
     },
     get_link_index: function (link) {
         for (var i = 0; i < this.links.length; i++) {
-            if(link.dst.dpid!=undefined){
+            if(link.port.dst.dpid!=undefined){
                 if (link.src.dpid == this.links[i].port.src.dpid &&
                     link.src.port_no == this.links[i].port.src.port_no &&
                     link.dst.dpid == this.links[i].port.dst.dpid &&
