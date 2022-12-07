@@ -210,15 +210,6 @@ var topo = {
             console.log("delete switch: " + JSON.stringify(nodes[i]));
 
             node_index = this.get_node_index(nodes[i]);
-            for(i=0;i<this.hosts.length;i++){
-                if(this.hosts[i].port.dpid=nodes[i].dpid){
-                    
-                    hosts_index=this.get_node_index(this.hosts[i])
-                    console.log(hosts_index)
-                    this.hosts.splice(i,1)
-                    this.nodes.splice(hosts_index, 1);
-                }
-            }
             this.nodes.splice(node_index, 1);
 
             
