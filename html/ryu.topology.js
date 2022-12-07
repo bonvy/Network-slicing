@@ -174,7 +174,6 @@ var topo = {
     },
     add_hosts: function (hosts,nodes) {
         for (var i = 0; i < hosts.length; i++) {
-            
             this.hosts.push(hosts[i])
             var tmp=hosts[i].port
             console.log(nodes[this.get_node_index(tmp)])
@@ -363,25 +362,7 @@ var rpc = {
         elem.update();
         return "";
     },
-    event_host_enter: function (params) {
-        var hosts = [];
-        console.group("hostt")
-        for(var i=0; i < params.length; i++){
-            hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
-        }
-        topo.add_hosts(hosts);
-        elem.update();
-        return "";
-    },
-    event_hosts_leave: function (params) {
-        var hosts = [];
-        for(var i=0; i < params.length; i++){
-            hosts.push({"dpid":params[i].dpid,"ports":params[i].ports});
-        }
-        topo.delete_hosts(hosts);
-        elem.update();
-        return "";
-    },
+   
 }
 
 function initialize_topology() {
