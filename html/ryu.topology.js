@@ -224,7 +224,7 @@ var topo = {
                             dst: {}
                         }
                     }
-                    this.links.splice(this.get_link_index(link),1)
+                    //this.links.splice(this.get_link_index(link),1)
                     this.hosts.splice(i,1)
                     this.nodes.splice(hosts_index, 1);
                 }
@@ -248,9 +248,16 @@ var topo = {
     },
     get_node_index: function (node) {
         for (var i = 0; i < this.nodes.length; i++) {
-            if (node.dpid == this.nodes[i].dpid) {
-                return i;
+            if(node.dpid!=undefined){
+                if (node.dpid == this.nodes[i].dpid) {
+                    return i;
+                }
+            }else{
+                if(node.mac==this.nodes[i].mac){
+                    return i;
+                }
             }
+           
         }
         return null;
     },
@@ -305,8 +312,12 @@ var topo = {
     refresh_node_index: function(){
         this.node_index = {};
         for (var i = 0; i < this.nodes.length; i++) {
+            if(this.nodes[i].dpid!=undefined){
+                this.node_index[this.nodes[i].dpid] = i;   
+            }else{
+                this.node_index[this.nodes[i].mac] = i;
+            }
             
-            this.node_index[this.nodes[i].dpid] = i;
            
             
         }
