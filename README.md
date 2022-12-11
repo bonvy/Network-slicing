@@ -184,7 +184,7 @@ mininet> dpctl dump-flows NUMBER #all-flowTable-of-the-specified-switch
 
 ![hosts](https://user-images.githubusercontent.com/86969245/206301606-3c382930-59e2-41e3-99e3-a49985763fee.png)
 
-- Get the links of the topology → **loaclhost:8080/v1.0/topology/links**
+- Get the links of the topology → **localhost:8080/v1.0/topology/links**
 
 ![links ](https://user-images.githubusercontent.com/86969245/206302046-a7450e48-f5f8-48f2-882b-c39e3d152e86.png)
 
