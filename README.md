@@ -57,7 +57,7 @@ First of all run the code below so you’ll lunch the RYU controller that is abl
 comnetsemu@comnetsemu:~$ ryu-manager --observe-links gui_start.py simple_switch.py
 ```
 
-![Untitled](SDN%20Network%20Topology%20e9016259d57445db897d422bf7ba2acd/Untitled.png)
+![ryu-manager](https://user-images.githubusercontent.com/86969245/207618082-c3d13ed5-4bc0-4b83-b69c-b019e31f18ad.png)
 
 ### Setting up the mininet topology
 
@@ -82,12 +82,13 @@ Or run your custom topology:
 ~$ sudo -E python3 network.py
 ```
 
-![custom_topo_run](https://user-images.githubusercontent.com/86969245/206305155-ed3e9046-0fa4-4fca-a22f-c147d86ed475.png)
+
+![start-topo](https://user-images.githubusercontent.com/86969245/207618145-0a2fcdf0-4b9f-4036-9339-e97e9815949e.png)
 
 
 **Tips:** when you have finished remeber to exit mininet  so you will avoid any future mininet start up mistakes.
 
-![mn_exit](https://user-images.githubusercontent.com/86969245/206303945-87d92c8e-10ba-4eb2-b7f3-f3668bc2a157.png)
+![exit_mn](https://user-images.githubusercontent.com/86969245/207617798-60bf39d8-9f45-4c9e-a6b2-20dc0e0da4bb.png)
 
 ### RYU Northbound Visualizer
 
@@ -103,7 +104,7 @@ It will open a Ryu visualizer page that wil show you all the switches linked bet
 ### No topology has been istantiated
 
 
-![tp_vuota](https://user-images.githubusercontent.com/86969245/206303624-b1373de2-b722-49a9-8332-1e0c4dee7a00.png)
+![empty-topo](https://user-images.githubusercontent.com/86969245/207617778-e6d9cd99-2be8-43b1-b022-3a2129b27b81.png)
 
 
 
@@ -112,7 +113,7 @@ It will open a Ryu visualizer page that wil show you all the switches linked bet
 
 ### Custom topology
 
-![topology](https://user-images.githubusercontent.com/86969245/206303535-740e8b18-514f-4fd6-998b-da85b57eab93.png)
+![no pingall](https://user-images.githubusercontent.com/86969245/207617898-e1c6d86f-39f1-448f-a002-d24b4b894f4c.png)
 
 
 ### Retrieve information manually (mininet)
@@ -124,7 +125,7 @@ You can also check some infromations about the different nodes of the topology d
 ```jsx
 mininet> nodes
 ```
-![mn_nodes](https://user-images.githubusercontent.com/86969245/206305285-863eea24-05bc-4cb5-85ea-517b6e3dcfa1.png)
+![nodes_mn](https://user-images.githubusercontent.com/86969245/207617929-aab728ff-34aa-418b-8bae-cd07b568a263.png)
 
 
 **Display network links:** 
@@ -139,8 +140,7 @@ mininet> links
 ```jsx
 mininet> net
 ```
-![net_mn](https://user-images.githubusercontent.com/86969245/206305383-3a46238a-c6f6-472e-a4b9-9b9ab96b6fd0.png)
-
+![net_mn](https://user-images.githubusercontent.com/86969245/207617872-118cd8a7-4894-4b8f-9d6b-88ced847f7c5.png)
 
 **Ping a host to a target host (ping reachability):** 
 
@@ -153,11 +153,9 @@ mininet> h1 ping h2
 ```jsx
 mininet> pingall
 ```
+![pingall](https://user-images.githubusercontent.com/86969245/207617994-1e6a9f0f-849b-45c6-b1a1-185cdc8f6561.png)
 
-![pingall_out1](https://user-images.githubusercontent.com/86969245/206302672-418462f1-049b-4454-b98b-d7eac532b862.png)
-
-![pingall_out2](https://user-images.githubusercontent.com/86969245/206302708-680bc367-b387-42c6-8ae2-87effe15aa5d.png)
-
+![pingall_2](https://user-images.githubusercontent.com/86969245/207620574-d1ac6f80-37ca-4733-9cae-fec8e90918dc.png)
 
 
 **FlowTable (dumped informations about flows):**
@@ -166,31 +164,40 @@ mininet> pingall
 mininet> dpctl dump-flows #all-flowTable-of-the-switch
 mininet> dpctl dump-flows NUMBER #all-flowTable-of-the-specified-switch
 ```
-![dump_flow](https://user-images.githubusercontent.com/86969245/206302864-75c853fd-c315-43a2-af27-5276d0860d33.png)
 
+
+Output before pingall command:
+
+![dump_flow](https://user-images.githubusercontent.com/86969245/207617697-0f29c40b-be91-4169-a44b-7c23cd174a48.png)
+
+Output after pingall command: 
+
+![dump_flow_after_pingall](https://user-images.githubusercontent.com/86969245/207617723-9a0032f4-cdd3-41a4-84aa-ae15190b7a88.png)
 
 
 ### RYU RestAPI
 
 [ryu.app.ofctl_rest](https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html) provides **REST APIs** for retrieving infromation about the **switch stats** and  **update the switch stats**.  If  you want to try  open your browser and type: 
 
-### Get Switches stats (aggiungere immagini esempio)
+### Get Switches stats 
 
 - Get the list of the switches connected to the controller → **localhost:8080/stats/switches**
 
-![switches](https://user-images.githubusercontent.com/86969245/206301900-4e2bcc70-36a6-4f52-a338-df6ddc600500.png)
+![stat_switches](https://user-images.githubusercontent.com/86969245/207618175-d52574c4-b414-4cb6-a12d-c67958725891.png)
 
 - Get the list of the  hosts → **localhost:8080/v1.0/topology/hosts**
 
-![hosts](https://user-images.githubusercontent.com/86969245/206301606-3c382930-59e2-41e3-99e3-a49985763fee.png)
+![topo_host ](https://user-images.githubusercontent.com/86969245/207618202-9e7f80f0-7981-4c20-b8dd-be62b22f08bf.png)
 
 - Get the links of the topology → **localhost:8080/v1.0/topology/links**
 
-![links ](https://user-images.githubusercontent.com/86969245/206302046-a7450e48-f5f8-48f2-882b-c39e3d152e86.png)
+![topo_links](https://user-images.githubusercontent.com/86969245/207618247-e782b385-ac4b-4f04-9271-15217e205b7c.png)
 
 
 - Get all flows stats of the switch which specified with Datapath ID → **localhost:8080/stats/flow/<dpid>**
+
 - Get all switch table stats specified with Datapath ID → **localhost:8080/stats/table/<dpid>**
+
 - Get ports stats of the switch which specified with Datapath ID → **localhost:8080/stats/port/<dpid>**
 
 ### Update the switch stats
