@@ -94,7 +94,8 @@ Or run your custom topology:
 
 Now that all is set up to check the network browse your  locahost like **192.168.56.102:8080.**
 
-![tp_1_viewer](https://user-images.githubusercontent.com/86969245/206303712-d6f9a4dd-2cf9-4d02-8bcc-e0214c1ee4a4.png)
+![topo_1](https://user-images.githubusercontent.com/86969245/207623889-fdd7545c-298a-49be-a28c-c8ee1e96413c.png)
+
 
 
  ****
@@ -102,6 +103,7 @@ Now that all is set up to check the network browse your  locahost like **192.168
 It will open a Ryu visualizer page that wil show you all the switches linked between them and all the hosts linked to their own switches.  Clicking on to the different nodes you will retrieve informations related to the node that you selected.
 
 ### No topology has been istantiated
+
 
 
 ![empty-topo](https://user-images.githubusercontent.com/86969245/207617778-e6d9cd99-2be8-43b1-b022-3a2129b27b81.png)
