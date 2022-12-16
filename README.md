@@ -196,15 +196,9 @@ Output after pingall command:
 ![topo_links](https://user-images.githubusercontent.com/86969245/207618247-e782b385-ac4b-4f04-9271-15217e205b7c.png)
 
 
-- Get all flows stats of the switch which specified with Datapath ID → **localhost:8080/stats/flow/<dpid>**
-
-- Get all switch table stats specified with Datapath ID → **localhost:8080/stats/table/<dpid>**
-
-- Get ports stats of the switch which specified with Datapath ID → **localhost:8080/stats/port/<dpid>**
 
 ### Update the switch stats
 
-- Add a flow entry to the switch → localhost:8080/stats/flowentry/add
 - Delete all matching flow entry of the switch → localhost:8080/stats/flowentry/delete
 
 
