@@ -229,8 +229,8 @@ For more informations about **Mininet and RYU** follow those links:
 
 ---
 
-Hlaj Alessandro - Mat. 218549 
+Hlaj Alessandro 
 
-Dauti Andriano - Mat. 21…
+Dauti Andriano 
 
-Bonvecchio Francesco - Mat. 21 ….
+Bonvecchio Francesco 
