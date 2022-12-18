@@ -45,10 +45,23 @@ function image(tmp){
         return "./host.svg"
     }
 }
-bod=document.getElementsByTagName("body")
-var but = document.createElement("buttom")
-bod.append(but)
-but.innerText="Save"
+function downloadFiles(data, file_name, file_type) {
+    var file = new Blob([data], {type: file_type});
+    if (window.navigator.msSaveOrOpenBlob) 
+        window.navigator.msSaveOrOpenBlob(file, file_name);
+    else { 
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = file_name;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+    }
+}
 var elem = {
     force: d3.layout.force()
         .size([CONF.force.width, CONF.force.height])
@@ -97,7 +110,7 @@ elem.port = elem.svg.selectAll(".port");
 elem.update = function () {
     
     tmp=topo.nodes.concat(topo.hosts)
-    console.log(tmp)
+    downloadFiles(topo.nodes,"prova","json")
     this.force
         .nodes(tmp)
         .links(topo.links)
