@@ -35,10 +35,7 @@ class GUIServerController(ControllerBase):
             req.path_info = kwargs['filename']
         return self.static_app(req)
 
-    @route('topology', '/saveSnap/{info}',
-           methods=['GET'], requirements={'info'})
-    def save(elf, req, **kwargs):
-        print("ciao")
+   
 
     
 
