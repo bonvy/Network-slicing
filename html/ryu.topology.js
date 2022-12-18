@@ -62,10 +62,7 @@ function downloadFiles(data, file_name, file_type) {
         }, 0); 
     }
 }
-function saveSwitch(){
-    var j = JSON.stringify(topo.nodes);
-    downloadFiles(j,"swtich","json")
-}
+
 var elem = {
     force: d3.layout.force()
         .size([CONF.force.width, CONF.force.height])
@@ -108,6 +105,12 @@ function _dragstart(d) {
             .text(function (d) { return JSON.stringify(d, null, " "); });
     });
     d3.select(this).classed("fixed", d.fixed = true);
+}
+elem.saveSwitch = function (){
+   
+    var j = JSON.stringify(topo.nodes);
+    downloadFiles(j,"swtich","json")
+    
 }
 elem.node = elem.svg.selectAll(".node");
 elem.link = elem.svg.selectAll(".link");
