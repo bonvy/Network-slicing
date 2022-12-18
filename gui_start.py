@@ -38,8 +38,7 @@ class GUIServerController(ControllerBase):
     @route('topology', '/saveSnap/{info}',
            methods=['GET'], requirements={'info'})
     def save(elf, req, **kwargs):
-        with open('networkSnap.json','w') as json_file:
-            json.dump(**kwargs,json_file)
+        print("ciao")
 
     
 
