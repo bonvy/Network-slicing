@@ -62,6 +62,10 @@ function downloadFiles(data, file_name, file_type) {
         }, 0); 
     }
 }
+function saveSwitch(){
+    var j = JSON.stringify(topo.nodes);
+    downloadFiles(j,"swtich","json")
+}
 var elem = {
     force: d3.layout.force()
         .size([CONF.force.width, CONF.force.height])
@@ -111,8 +115,7 @@ elem.update = function () {
     
     tmp=topo.nodes.concat(topo.hosts)
     console.log(topo.nodes)
-    var j = JSON.stringify(topo.nodes);
-    downloadFiles(j,"prova","json")
+    
     this.force
         .nodes(tmp)
         .links(topo.links)
