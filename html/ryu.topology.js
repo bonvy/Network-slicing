@@ -57,7 +57,7 @@ var elem = {
         .attr("width", CONF.force.width)
         .attr("height", CONF.force.height),
     button: d3.select("body").append("button")
-        .attr("innerText","Save"),
+        .attr("text","Save"),
     console: d3.select("body").append("div")
         .attr("id", "console")
         .attr("width", CONF.force.width)
