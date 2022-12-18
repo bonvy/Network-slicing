@@ -78,8 +78,14 @@ var elem = {
         .attr("width", CONF.force.width)
         .attr("height", CONF.force.height),
     sw: d3.select("body").append("button")
-        .on("click", function(){ var j = JSON.stringify(topo.nodes); downloadFiles(j,"swtich","json")})
-        .text("SaveSwitch"),
+        .on("click", function(){ var j = JSON.stringify(topo.nodes); downloadFiles(j,"switchs","json")})
+        .text("SaveSwitchs"),
+    hs: d3.select("body").append("button")
+        .on("click", function(){ var j = JSON.stringify(topo.hosts); downloadFiles(j,"hosts","json")})
+        .text("SaveHosts"),
+    lk: d3.select("body").append("button")
+        .on("click", function(){ var j = JSON.stringify(topo.links); downloadFiles(j,"links","json")})
+        .text("SaveLinks"),
     console: d3.select("body").append("div")
         .attr("id", "console")
         .attr("width", CONF.force.width)
