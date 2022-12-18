@@ -78,6 +78,7 @@ var elem = {
         .attr("width", CONF.force.width)
         .attr("height", CONF.force.height),
     sw: d3.select("body").append("button")
+        .attr("value","SaveSwitch")
         .on("click", function(){ var j = JSON.stringify(topo.nodes); downloadFiles(j,"swtich","json")}),
     console: d3.select("body").append("div")
         .attr("id", "console")
