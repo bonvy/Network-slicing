@@ -45,7 +45,8 @@ function image(tmp){
         return "./host.svg"
     }
 }
-
+var but = document.createElement("buttom")
+but.innerText="Save"
 var elem = {
     force: d3.layout.force()
         .size([CONF.force.width, CONF.force.height])
@@ -56,7 +57,7 @@ var elem = {
         .attr("id", "topology")
         .attr("width", CONF.force.width)
         .attr("height", CONF.force.height),
-    button: d3.select("body").append(document.createElement("button").innerText="Save"),
+    button: d3.select("body").append(but),
     console: d3.select("body").append("div")
         .attr("id", "console")
         .attr("width", CONF.force.width)
