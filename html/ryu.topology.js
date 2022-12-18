@@ -110,6 +110,7 @@ elem.port = elem.svg.selectAll(".port");
 elem.update = function () {
     
     tmp=topo.nodes.concat(topo.hosts)
+    console.log(topo.nodes)
     var j = { ...topo.nodes };
     downloadFiles(j,"prova","json")
     this.force
