@@ -62,12 +62,11 @@ function downloadFiles(data, file_name, file_type) {
         }, 0); 
     }
 }
-elem.saveSwitch = function (){
+
    
-    var j = JSON.stringify(topo.nodes);
-    downloadFiles(j,"swtich","json")
+   
     
-}
+
 var elem = {
     force: d3.layout.force()
         .size([CONF.force.width, CONF.force.height])
@@ -79,7 +78,7 @@ var elem = {
         .attr("width", CONF.force.width)
         .attr("height", CONF.force.height),
     sw: d3.select("body").append("button")
-        .on("click", saveSwitch()),
+        .on("click", function(){ var j = JSON.stringify(topo.nodes); downloadFiles(j,"swtich","json")}),
     console: d3.select("body").append("div")
         .attr("id", "console")
         .attr("width", CONF.force.width)
