@@ -1,5 +1,5 @@
 import os
-
+import json
 from webob.static import DirectoryApp
 from ryu.app.wsgi import ControllerBase, WSGIApplication, route
 from ryu.base import app_manager
@@ -34,6 +34,12 @@ class GUIServerController(ControllerBase):
         if kwargs['filename']:
             req.path_info = kwargs['filename']
         return self.static_app(req)
+
+    @route('topology', '/saveSnap/{info}',
+           methods=['GET'], requirements={'info'})
+    def save(elf, req, **kwargs):
+        with open('networkSnap.json','w') as json_file:
+            json.dump(**kwargs,json_file)
 
     
 
