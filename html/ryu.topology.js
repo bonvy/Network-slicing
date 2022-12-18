@@ -56,7 +56,7 @@ var elem = {
         .attr("id", "topology")
         .attr("width", CONF.force.width)
         .attr("height", CONF.force.height),
-    button: d3.select("body").append("button"),
+    button: d3.select("body").append(document.createElement("button").setAttribute("text","save")),
     console: d3.select("body").append("div")
         .attr("id", "console")
         .attr("width", CONF.force.width)
