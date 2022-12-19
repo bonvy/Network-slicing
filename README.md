@@ -94,28 +94,30 @@ Or run your custom topology:
 
 Now that all is set up to check the network browse your  locahost like **192.168.56.102:8080.**
 
-![topo_1](https://user-images.githubusercontent.com/86969245/207623889-fdd7545c-298a-49be-a28c-c8ee1e96413c.png)
 
-
+![started-topo](https://user-images.githubusercontent.com/86969245/208375084-acd29839-7d42-46cc-93f8-a686fdf239a9.png)
 
  ****
 
 It will open a Ryu visualizer page that wil show you all the switches linked between them and all the hosts linked to their own switches.  Clicking on to the different nodes you will retrieve informations related to the node that you selected.
 
+Furthermore, the visualizer page show three different buttons. These permit to download a file with all the information related to Switches, hosts and links.  
+
 ### No topology has been istantiated
 
-
-
-![empty-topo](https://user-images.githubusercontent.com/86969245/207617778-e6d9cd99-2be8-43b1-b022-3a2129b27b81.png)
-
+![no-topo-inst](https://user-images.githubusercontent.com/86969245/208399268-8a59c3f7-8dc8-4f08-b4e9-0dd30d5c5b30.png)
 
 
 
 ### Generic topology
 
+![generic-topo](https://user-images.githubusercontent.com/86969245/208433337-fc51b96a-f0b2-43d1-83ed-a0ff9dfde4b7.png)
+
+
 ### Custom topology
 
-![no pingall](https://user-images.githubusercontent.com/86969245/207617898-e1c6d86f-39f1-448f-a002-d24b4b894f4c.png)
+
+![no-pingall-net](https://user-images.githubusercontent.com/86969245/208375054-3c78a3b2-65bb-440c-900a-4b1d24aeffa4.png)
 
 
 ### Retrieve information manually (mininet)
@@ -155,7 +157,8 @@ mininet> h1 ping h2
 ```jsx
 mininet> pingall
 ```
-![pingall](https://user-images.githubusercontent.com/86969245/207617994-1e6a9f0f-849b-45c6-b1a1-185cdc8f6561.png)
+
+![pingall-net](https://user-images.githubusercontent.com/86969245/208375071-46af91e2-46e4-4879-a5bc-c817da266c67.png)
 
 ![pingall_2](https://user-images.githubusercontent.com/86969245/207620574-d1ac6f80-37ca-4733-9cae-fec8e90918dc.png)
 
